@@ -1,5 +1,5 @@
 ---
-import { Menu, X } from '@lucide/astro'
+import { Menu, Moon, Sun, X } from '@lucide/astro'
 ---
 
 <header class="fixed top-0 z-50 w-full py-6 transition-all duration-300">
@@ -17,7 +17,15 @@ import { Menu, X } from '@lucide/astro'
     </nav>
 
     <div class="flex items-center gap-4">
-      <button class="hidden sm:block bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10">
+      <button
+        id="theme-toggle"
+        aria-label="Toggle theme"
+        class="size-10 rounded-full flex items-center justify-center bg-on-surface/5 hover:bg-on-surface/10 transition-colors text-on-surface"
+      >
+        <Moon class="icon-moon size-6" />
+        <Sun class="icon-sun size-6" />
+      </button>
+      <button class="hidden sm:block bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10  dark:bg-dark-primary dark:text-dark-on-primary dark:hover:bg-dark-primary/90">
         Begin Journey
       </button>
       <button onclick="toggleMobileMenu()" class="toggle-menu md:hidden text-on-surface">
@@ -45,6 +53,10 @@ header {
     @apply hidden;
   }
 
+  .icon-moon {
+    @apply hidden;
+  }
+
   &.open {
     .icon-x {
       @apply inline-block;
@@ -65,14 +77,32 @@ header {
     }
   }
 }
+
+:global(html.dark) header {
+  .icon-sun {
+    @apply hidden;
+  }
+
+  .icon-moon {
+    @apply inline-block;
+  }
+}
 </style>
 
 <script>
 const header = document.querySelector('header')
 const menuToggle = document.querySelector('header .toggle-menu')
 const menu = document.querySelector('header .menu')
+const themeToggle = document.getElementById('theme-toggle')
 
-window.addEventListener("scroll", function () {
+if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark')
+
+themeToggle.addEventListener('click', function () {
+  const isDark = document.documentElement.classList.toggle('dark')
+  localStorage.setItem('theme', isDark ? 'dark' : 'light')
+})
+
+window.addEventListener('scroll', function () {
   const isScrolled = window.scrollY > 20
 
   if (isScrolled) {
