@@ -1,0 +1,71 @@
+---
+import { Sparkles } from '@lucide/astro'
+---
+
+<section class="pt-40 pb-24 px-6 md:px-8 overflow-hidden" id="essence">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!--motion-->
+<!--
+    initial={{ opacity: 0, x: -50 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.8 }}
+-->
+    <div
+      class="space-y-10"
+    >
+      <div class="inline-flex items-center gap-3 bg-primary/10 px-4 py-2 rounded-full">
+        <Sparkles class="w-4 h-4 text-primary" />
+        <span class="text-xs font-semibold uppercase tracking-widest text-primary">Spendful — Mindful Spending</span>
+      </div>
+
+      <h1 class="font-serif text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] text-on-surface">
+        Simple daily <br />
+        <span class="text-primary italic">spend awareness.</span>
+      </h1>
+
+      <p class="text-xl text-on-surface-variant max-w-lg leading-relaxed font-light">
+        Transform your relationship with money through intentional tracking. We don't just count cents; we cultivate presence.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-6 pt-4">
+        <a href="#" class="transition-transform hover:scale-105">
+          <img
+            alt="Get it on Google Play"
+            class="h-12"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZP_UmcOmEysXjGk28ilQNU4fwvpaG1SU9zct0CJiWL_GuShMHUp4ZYgKwxg_NLWMHmxq0cjpuPcAzsEbi8fwwbqUcqDb8C21wbsfG2INvaUoQwtagNyll6iItbEfXLPzph1FkNZkgDf5OK-8H0f4FJZE7njUHLZdGAIukvcYl8G_gn0hOAv-ZE8Q8nY72vKLGvB8jnui_MWGoz_ohYcAr3-dzoJQnO9WD35w6HezkYAnHGa9iGswljT4oZjo43_RUAL8UYmU-4Gw"
+            referrerPolicy="no-referrer"
+          />
+        </a>
+        <a href="#" class="transition-transform hover:scale-105">
+          <img
+            alt="Download on the App Store"
+            class="h-12"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh46sPdlFRCHK8d-QUMBrg5FvoY7h1F5jVaxyiWiAmLML3Uf3JfDz5ZbFkXyGY30VmohaewLR3jELPUwBaFf8JOstI8Z21oEU7nJuxoj8ruw_p9C-UKt7VjbP9fx4NoEKJawoFf6Acmuj9LMHXvJim4O5Z-R_p-FbPlw_93jhBJm-RcMRj9LZ0yS6CIzdNbJwqwCel0YmE6lKOJhYiCE-brfYKsVrsRCAjzBhco22hZXHGs9ATAVDKYi7eimXSUqRt5Up8TeArDq0"
+            referrerPolicy="no-referrer"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!--motion-->
+<!--
+    initial={{ opacity: 0, scale: 0.8 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true }}
+    transition={{ duration: 1, ease: "easeOut" }}
+-->
+    <div class="relative flex justify-center">
+      <div class="relative z-10 w-full max-w-sm aspect-[9/19] bg-surface-container-lowest rounded-[3rem] p-4 shadow-2xl ring-8 ring-on-surface/5 overflow-hidden">
+        <img
+          class="w-full h-full object-cover rounded-[2.2rem]"
+          alt="Spendful App Interface"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAckf19CxFcJqrBKe0_5gV1hC-ANaB_dk4RBYVBLuRy-aZsAHnKHaUDA-tA-xoZa4OrO0n1bkqLHOvC7ojvJhl94PHLdFOFKJ_W8JCco8NVN-cAebkecz3Cma3Nro7TSYYc8DW2tL-5KByLBlxHuLUDLHWNm6Wot7dDDUmcNo48u4vrTFaSVHZPAhXnJrklGaA1uDquSo6AuYvtEYZGxkpJax9e_ZK57GT8ViRdyTdWAvVaks5yUP9CeFeNZ77b1K7jS_LXkNvkZSY"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+      <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
+      <div class="absolute -bottom-12 -left-12 w-64 h-64 bg-tertiary/10 rounded-full blur-[100px] -z-10"></div>
+    </div>
+  </div>
+</section>
