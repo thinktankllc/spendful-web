@@ -1,0 +1,22 @@
+---
+---
+
+<section class="py-24 bg-surface-container-low overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 md:px-8">
+    <div class="flex flex-wrap justify-center gap-12">
+      {[
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCHbQzkEiQZ9uCfk1OzRFniaLYefS5zGg9lpol6gTwpwYLNLirRB5FzHarRsmhc4zJRetVnYXiTSiSUHxfpAR7sEERGOFVc6wnCBEIFpg31M319mqDmUiv6CRxXMEN1IUCltYMYdzwEshcpTTs9Ckj682sOYEZhSxtxTa5q49dGZI0QQvSknUa4JeyEk6QUaouk3ImGNLZSAr7di88pdXl8Rl3jUerXG4femQtuO9RKtoHv7syE3V1Game_uNssAhYG1NyM-8DrE8E",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuCIQzszcGolh86caCNwfixhyQ_P-veWyBD4kLuB7tfQYsSkqGrV12SZnJ5VRFGxUFe3F8djjat3dm75w9WfkOUKxglQyH7pUeCt-rz668WFn44xDOy6sCB1j49AY2_ICkPj3c8enctkqF3ZPpKheYeYRDGvVAh5D9Ux0sGu-9zy9LUqeOiaOzImc6ykaCf6FVk0U4gQaevWtM8G3ith4E70pBAsGliBD1H1iDQ9fcYNx0u1SFOlrZj5fSL_SSIye71FwdxazoEAAwQ",
+        "https://lh3.googleusercontent.com/aida-public/AB6AXuBKSel-mzFFDp2fZaDca14RX3GUY7eAtdc111UnyRH94cT4_Sb4qzd9CJ-b6cWNiAJTvYB4xCtMU1pmbUpg38VVBH9QnA0jProAbDFl961a59Hq0GN7_l3sqxYrQaoqnW_hVQ-SWPYbQA1mZXC9gLXsXqEc04VPstkb__bHWjRdnhR66ADBH2--L-Fn7ZBx34XcLn6cQOSigKT-P1slAoaquuNd_LkOJuuDihTgviHumi028YtQlREFwiuBK-z5OFDKI03k-hhUrus"
+      ].map((src, i) => (
+        // motion
+        // whileHover={{ scale: 1.05, rotate: 0 }}
+        <div
+          class:list={['w-64 aspect-[9/19] bg-surface-container-lowest rounded-xl shadow-2xl p-2 transition-transform duration-500', i === 0 ? '-rotate-6' : i === 2 ? 'rotate-6' : 'scale-110 z-10']}
+        >
+          <img class="w-full h-full object-cover rounded-lg" alt={`App screen ${i + 1}`} src={src} referrerPolicy="no-referrer" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,55 +1,37 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@layer theme {
-  :root,:host {
-    --animate-fade-in: fade-in .5s linear forwards;
-    --animate-spin-slow: spin 4s linear infinite;
-    --animate-spin-slower: spin 6s linear infinite;
-    --animate-spin-reverse-slower: spin-reverse 6s linear infinite;
-  }
+@theme {
+  --color-primary: #1e6660;
+  --color-primary-container: #3b7f79;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #f3fffc;
+  --color-secondary: #5d5e63;
+  --color-secondary-container: #dfdfe4;
+  --color-on-secondary-container: #616267;
+  --color-tertiary: #9c3f00;
+  --color-tertiary-container: #c45100;
+  --color-surface: #f7f9ff;
+  --color-surface-container-low: #f1f4fa;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-surface: #181c20;
+  --color-on-surface-variant: #3f4947;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
 }
 
 @layer base {
   html {
-    @apply antialiased bg-gray-50;
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-surface text-on-surface;
   }
 }
 
 @layer utilities {
-  .animate-fade-in {
-    animation: var(--animate-fade-in)
+  .glass {
+    @apply bg-surface-container-lowest/80 backdrop-blur-xl border-b border-on-surface/5;
   }
-
-  .animate-marquee {
-    animation: marquee var(--marquee-duration)linear infinite
-  }
-
-  .animate-spin-reverse-slower {
-    animation: var(--animate-spin-reverse-slower)
-  }
-
-  .animate-spin-slow {
-    animation: var(--animate-spin-slow)
-  }
-
-  .animate-spin-slower {
-    animation: var(--animate-spin-slower)
-  }
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes spin-reverse {
-  to { transform: rotate(-360deg); }
-}
-
-@keyframes marquee {
-  to { transform: translateY(-50%); }
 }
