@@ -2,6 +2,8 @@
 import { Menu, Moon, Sun, X } from '@lucide/astro'
 
 const { minimal } = Astro.props
+
+const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
 ---
 
 <header class="fixed top-0 z-50 border-b border-b-transparent w-full py-6 transition-all duration-300">
@@ -12,7 +14,7 @@ const { minimal } = Astro.props
 
     {!minimal && (
       <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
-        {["Essence", "Flow", "Circle", "Journal"].map((item) => (
+        {SECTIONS.map((item) => (
           <a href={`#${item.toLowerCase()}`} class="text-on-surface-variant hover:text-primary transition-colors">
             {item}
           </a>
@@ -39,7 +41,7 @@ const { minimal } = Astro.props
   </div>
 
   <div class="menu md:hidden absolute top-full left-0 w-full bg-surface border-b border-on-surface/5 p-6 space-y-4 shadow-xl">
-    {["Essence", "Flow", "Circle", "Journal"].map((item) => (
+    {SECTIONS.map((item) => (
       <a href={`#${item.toLowerCase()}`} class="block text-lg font-medium text-on-surface">
         {item}
       </a>
