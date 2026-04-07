@@ -3,7 +3,7 @@ import '@/styles/global.css'
 import Footer from '@/components/footer.astro'
 import Header from '@/components/header.astro'
 
-const { title } = Astro.props
+const { minimal, title } = Astro.props
 ---
 
 <html lang="en">
@@ -17,7 +17,7 @@ const { title } = Astro.props
 </head>
 <body>
 <main>
-<Header />
+<Header minimal={minimal} />
 <slot />
 <Footer />
 </main>
