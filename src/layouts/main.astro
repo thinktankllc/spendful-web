@@ -1,0 +1,25 @@
+---
+import '@/styles/global.css'
+import Footer from '@/components/footer.astro'
+import Header from '@/components/header.astro'
+
+const { title } = Astro.props
+---
+
+<html lang="en">
+<head>
+<script is:inline>if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark')</script>
+<meta charset="utf-8" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<meta name="viewport" content="width=device-width" />
+<title>{title ? `${title} — Spendful` : 'Spendful'}</title>
+</head>
+<body>
+<main>
+<Header />
+<slot />
+<Footer />
+</main>
+</body>
+</html>
