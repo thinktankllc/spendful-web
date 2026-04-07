@@ -25,7 +25,7 @@ import { Menu, Moon, Sun, X } from '@lucide/astro'
         <Moon class="icon-moon size-6" />
         <Sun class="icon-sun size-6" />
       </button>
-      <button class="hidden sm:block bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10  dark:bg-dark-primary dark:text-dark-on-primary dark:hover:bg-dark-primary/90">
+      <button class="hidden sm:block bg-primary hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10">
         Begin Journey
       </button>
       <button onclick="toggleMobileMenu()" class="toggle-menu md:hidden text-on-surface">
@@ -41,7 +41,7 @@ import { Menu, Moon, Sun, X } from '@lucide/astro'
         {item}
       </a>
     ))}
-    <button class="w-full bg-primary text-white py-4 rounded-xl font-medium">
+    <button class="w-full bg-primary text-on-primary py-4 rounded-xl font-medium">
       Begin Journey
     </button>
   </div>
