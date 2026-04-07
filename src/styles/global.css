@@ -64,3 +64,8 @@
     @apply bg-surface-container-lowest/80 backdrop-blur-xl border-on-surface/5;
   }
 }
+
+@utility container {
+  @apply mx-auto px-4 sm:px-6;
+}
+
