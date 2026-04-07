@@ -3,6 +3,10 @@
 @import '@fontsource-variable/playfair-display/wght-italic.css';
 @import 'tailwindcss';
 
+@plugin '@tailwindcss/typography' {
+  className: typo;
+}
+
 @theme {
   --color-primary: #1e6660;
   --color-primary-container: #3b7f79;
