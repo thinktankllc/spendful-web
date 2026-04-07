@@ -3,7 +3,10 @@ import '@/styles/global.css'
 import Footer from '@/components/footer.astro'
 import Header from '@/components/header.astro'
 
-const { minimal, title } = Astro.props
+const { description, minimal, title } = Astro.props
+
+const siteTitle = title ? `${title} — Spendful` : 'Spendful'
+const siteDescription = description || 'Spendful is a calm, local-first spending journal. Track daily expenses with intention — no budgets, no stress, just gentle awareness of where your money goes.'
 ---
 
 <html lang="en">
@@ -13,7 +16,8 @@ const { minimal, title } = Astro.props
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" href="/favicon.ico" />
 <meta name="viewport" content="width=device-width" />
-<title>{title ? `${title} — Spendful` : 'Spendful'}</title>
+<title>{siteTitle}</title>
+<meta name="description" content={siteDescription} />
 </head>
 <body>
 <main>

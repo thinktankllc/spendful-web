@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/content.astro
 title: Support
+description: Get help with Spendful. Reach our support team. We typically respond within 1–2 business days.
 ---
 
 Thank you for using Spendful. If you have questions, need help, or want to report an issue, we’re here to help.
