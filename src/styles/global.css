@@ -57,6 +57,6 @@
 
 @layer utilities {
   .glass {
-    @apply bg-surface-container-lowest/80 backdrop-blur-xl border-b border-on-surface/5;
+    @apply bg-surface-container-lowest/80 backdrop-blur-xl border-on-surface/5;
   }
 }
