@@ -1,8 +1,14 @@
 ---
+import { Image } from 'astro:assets'
+
+import screenCapture from '@/assets/screen-capture.png'
+import screenInsight from '@/assets/screen-insight.png'
+import screenJournal from '@/assets/screen-journal.png'
+
 const IMAGES = [
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCHbQzkEiQZ9uCfk1OzRFniaLYefS5zGg9lpol6gTwpwYLNLirRB5FzHarRsmhc4zJRetVnYXiTSiSUHxfpAR7sEERGOFVc6wnCBEIFpg31M319mqDmUiv6CRxXMEN1IUCltYMYdzwEshcpTTs9Ckj682sOYEZhSxtxTa5q49dGZI0QQvSknUa4JeyEk6QUaouk3ImGNLZSAr7di88pdXl8Rl3jUerXG4femQtuO9RKtoHv7syE3V1Game_uNssAhYG1NyM-8DrE8E",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuCIQzszcGolh86caCNwfixhyQ_P-veWyBD4kLuB7tfQYsSkqGrV12SZnJ5VRFGxUFe3F8djjat3dm75w9WfkOUKxglQyH7pUeCt-rz668WFn44xDOy6sCB1j49AY2_ICkPj3c8enctkqF3ZPpKheYeYRDGvVAh5D9Ux0sGu-9zy9LUqeOiaOzImc6ykaCf6FVk0U4gQaevWtM8G3ith4E70pBAsGliBD1H1iDQ9fcYNx0u1SFOlrZj5fSL_SSIye71FwdxazoEAAwQ",
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBKSel-mzFFDp2fZaDca14RX3GUY7eAtdc111UnyRH94cT4_Sb4qzd9CJ-b6cWNiAJTvYB4xCtMU1pmbUpg38VVBH9QnA0jProAbDFl961a59Hq0GN7_l3sqxYrQaoqnW_hVQ-SWPYbQA1mZXC9gLXsXqEc04VPstkb__bHWjRdnhR66ADBH2--L-Fn7ZBx34XcLn6cQOSigKT-P1slAoaquuNd_LkOJuuDihTgviHumi028YtQlREFwiuBK-z5OFDKI03k-hhUrus"
+  screenInsight,
+  screenCapture,
+  screenJournal
 ]
 ---
 
@@ -10,8 +16,15 @@ const IMAGES = [
   <div class="container">
     <div class="flex flex-wrap justify-center gap-12">
       {IMAGES.map((src, i) => (
-        <div class:list={['w-64 aspect-[9/19] bg-surface-container-lowest rounded-4xl shadow-2xl p-2 hover:scale-105 transition-transform duration-500', i === 0 ? '-rotate-6' : i === 2 ? 'rotate-6' : 'scale-110 z-10']}>
-          <img class="w-full h-full object-cover rounded-3xl" alt={`App screen ${i + 1}`} src={src} />
+        <div class:list={['w-64 aspect-[9/19] bg-surface-container-lowest rounded-4xl shadow-2xl p-1.5 hover:scale-105 transition-transform duration-500', i === 0 ? '-rotate-6' : i === 2 ? 'rotate-6' : 'scale-110 z-10']}>
+          <Image
+            src={src}
+            width={1320}
+            height={2868}
+            alt={`App screen ${i + 1}`}
+            widths={[300, 450, 600]}
+            class="w-full h-full object-cover rounded-[1.75rem]"
+          />
         </div>
       ))}
     </div>
