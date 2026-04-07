@@ -3,6 +3,7 @@ import { Image } from 'astro:assets'
 import { Sparkles } from '@lucide/astro'
 
 import screenMonth from '@/assets/screen-month.png'
+import screenMonthDark from '@/assets/screen-month-dark.png'
 ---
 
 <section class="pt-40 pb-24 overflow-hidden" id="essence">
@@ -69,7 +70,16 @@ import screenMonth from '@/assets/screen-month.png'
           alt="Spendful App Interface"
           widths={[360, 540, 720]}
           priority
-          class="w-full h-full object-cover rounded-[2.2rem]"
+          class="size-full object-cover rounded-[2.2rem] dark:hidden"
+        />
+        <Image
+          src={screenMonthDark}
+          width={1320}
+          height={2868}
+          alt="Spendful App Interface"
+          widths={[360, 540, 720]}
+          priority
+          class="size-full object-cover rounded-[2.2rem] not-dark:hidden"
         />
       </div>
       <div class="absolute -top-12 -right-12 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -z-10"></div>
