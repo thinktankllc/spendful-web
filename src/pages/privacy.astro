@@ -1,156 +1,151 @@
 ---
-import Layout from '@/layouts/main.astro'
+import Layout from '@/layouts/content.astro'
 ---
 
-<Layout title="Privacy Policy" minimal>
-  <section class="min-h-screen pt-40 pb-24">
-    <div class="mx-auto typo text-on-surface-variant typo-headings:text-primary typo-headings:font-serif typo-headings:italic typo-strong:text-on-surface-variant typo-a:text-primary typo-blockquote:text-primary">
-      <h1 class="text-center">Privacy Policy</h1>
-      <p><strong>Last updated:</strong> March 2026</p>
+<Layout title="Privacy Policy">
+  <p><strong>Last updated:</strong> March 2026</p>
 
-      <p>
-        Spendful is “a calm, local-first spend awareness app designed to help you gently notice your spending.” The vast
-        majority of your data never leaves your device. This policy explains what data is stored, what optional features
-        may transmit data externally, and how that information is handled.
-      </p>
-      <p>Spendful does not require an account or sign-in to use the app.</p>
+  <p>
+    Spendful is “a calm, local-first spend awareness app designed to help you gently notice your spending.” The vast
+    majority of your data never leaves your device. This policy explains what data is stored, what optional features
+    may transmit data externally, and how that information is handled.
+  </p>
+  <p>Spendful does not require an account or sign-in to use the app.</p>
 
-      <h2>1. Data Stored on Your Device</h2>
-      <p>All core app data is stored locally using your device’s secure storage and is never sent to Spendful’s servers. This includes:</p>
-      <ul>
-        <li>Spending entries (date, amount, category, currency, note)</li>
-        <li>Recurring spending templates</li>
-        <li>Custom categories</li>
-        <li>Journal entries</li>
-        <li>App settings (theme, currency, notification preferences)</li>
-        <li>Subscription and trial status</li>
-      </ul>
-      <p>Your data remains on your device unless you choose to export it.</p>
-      <p>
-        You can export all of your data at any time from within the app. Exported files are saved to your device and are
-        never uploaded by Spendful.
-      </p>
-      <p>If you uninstall the app, all locally stored data is removed from your device.</p>
+  <h2>1. Data Stored on Your Device</h2>
+  <p>All core app data is stored locally using your device’s secure storage and is never sent to Spendful’s servers. This includes:</p>
+  <ul>
+    <li>Spending entries (date, amount, category, currency, note)</li>
+    <li>Recurring spending templates</li>
+    <li>Custom categories</li>
+    <li>Journal entries</li>
+    <li>App settings (theme, currency, notification preferences)</li>
+    <li>Subscription and trial status</li>
+  </ul>
+  <p>Your data remains on your device unless you choose to export it.</p>
+  <p>
+    You can export all of your data at any time from within the app. Exported files are saved to your device and are
+    never uploaded by Spendful.
+  </p>
+  <p>If you uninstall the app, all locally stored data is removed from your device.</p>
 
-      <h2>2. AI Features (Optional)</h2>
-      <p>
-        Spendful offers optional AI-powered features that require an internet connection. These features send limited
-        data to a third-party AI provider to perform the requested task. The app functions fully without these features.
-      </p>
-      <p>AI requests are sent directly from your device. Spendful does not operate servers that store AI requests or responses.</p>
+  <h2>2. AI Features (Optional)</h2>
+  <p>
+    Spendful offers optional AI-powered features that require an internet connection. These features send limited
+    data to a third-party AI provider to perform the requested task. The app functions fully without these features.
+  </p>
+  <p>AI requests are sent directly from your device. Spendful does not operate servers that store AI requests or responses.</p>
 
-      <h3>Receipt Scanning</h3>
-      <p>When you choose to scan a receipt:</p>
-      <ul>
-        <li>A photo is captured using your camera or selected from your photo library</li>
-        <li>The image is sent to an AI service (OpenAI) for processing</li>
-        <li>The service extracts information such as amount, date, merchant name, and a suggested category</li>
-      </ul>
-      <p>Spendful does not store receipt images externally. The app requests camera or photo library access only when you choose to scan a receipt.</p>
+  <h3>Receipt Scanning</h3>
+  <p>When you choose to scan a receipt:</p>
+  <ul>
+    <li>A photo is captured using your camera or selected from your photo library</li>
+    <li>The image is sent to an AI service (OpenAI) for processing</li>
+    <li>The service extracts information such as amount, date, merchant name, and a suggested category</li>
+  </ul>
+  <p>Spendful does not store receipt images externally. The app requests camera or photo library access only when you choose to scan a receipt.</p>
 
-      <h3>Spending Insights</h3>
-      <p>If you request an insight, Spendful sends a summary of recent spending entries to generate a short reflection.</p>
-      <p>This summary may include:</p>
-      <ul>
-        <li>Dates of entries</li>
-        <li>Amounts</li>
-        <li>Categories</li>
-        <li>Notes you have written</li>
-      </ul>
-      <p>
-        Previous insights may be included to reduce repetition. No identifying information such as name, email address,
-        or device identifier is included in these requests.
-      </p>
-      <blockquote>
-        <strong>What OpenAI receives:</strong> Receipt images and anonymised spending summaries. Requests are sent
-        directly from your device using an API key. OpenAI’s handling of this data is governed by OpenAI’s Privacy
-        Policy. By default, OpenAI does not use API data to train models.
-      </blockquote>
+  <h3>Spending Insights</h3>
+  <p>If you request an insight, Spendful sends a summary of recent spending entries to generate a short reflection.</p>
+  <p>This summary may include:</p>
+  <ul>
+    <li>Dates of entries</li>
+    <li>Amounts</li>
+    <li>Categories</li>
+    <li>Notes you have written</li>
+  </ul>
+  <p>
+    Previous insights may be included to reduce repetition. No identifying information such as name, email address,
+    or device identifier is included in these requests.
+  </p>
+  <blockquote>
+    <strong>What OpenAI receives:</strong> Receipt images and anonymised spending summaries. Requests are sent
+    directly from your device using an API key. OpenAI’s handling of this data is governed by OpenAI’s Privacy
+    Policy. By default, OpenAI does not use API data to train models.
+  </blockquote>
 
-      <h2>3. Currency Conversion (Optional)</h2>
-      <p>
-        If you change your default currency and choose to convert existing entries, Spendful retrieves exchange rates
-        from the Exchange Rate API (open.er-api.com). Only the currency code (for example “USD”) is transmitted. No
-        personal or financial data is included.
-      </p>
+  <h2>3. Currency Conversion (Optional)</h2>
+  <p>
+    If you change your default currency and choose to convert existing entries, Spendful retrieves exchange rates
+    from the Exchange Rate API (open.er-api.com). Only the currency code (for example “USD”) is transmitted. No
+    personal or financial data is included.
+  </p>
 
-      <h2>4. In-App Purchases</h2>
-      <p>
-        Subscriptions and purchases are processed entirely by Apple (App Store) or Google (Google Play). Spendful does
-        not receive or store payment details.
-      </p>
-      <p>Purchase validation is handled on-device using information returned by the platform.</p>
-      <p>Any data collected during the purchase process is governed by Apple’s or Google’s respective privacy policies.</p>
+  <h2>4. In-App Purchases</h2>
+  <p>
+    Subscriptions and purchases are processed entirely by Apple (App Store) or Google (Google Play). Spendful does
+    not receive or store payment details.
+  </p>
+  <p>Purchase validation is handled on-device using information returned by the platform.</p>
+  <p>Any data collected during the purchase process is governed by Apple’s or Google’s respective privacy policies.</p>
 
-      <h2>5. Push Notifications</h2>
-      <p>If you enable daily reminders, Spendful schedules local notifications on your device. Notification schedules remain entirely on your device and are not transmitted externally.</p>
+  <h2>5. Push Notifications</h2>
+  <p>If you enable daily reminders, Spendful schedules local notifications on your device. Notification schedules remain entirely on your device and are not transmitted externally.</p>
 
-      <h2>6. Analytics and Tracking</h2>
-      <p>Spendful contains no analytics, advertising, crash reporting, or third-party tracking.</p>
-      <p>This means:</p>
-      <ul>
-        <li>No telemetry</li>
-        <li>No behavioral tracking</li>
-        <li>No advertising identifiers</li>
-        <li>No user profiling</li>
-      </ul>
-      <p>Your activity inside the app is not monitored or transmitted.</p>
+  <h2>6. Analytics and Tracking</h2>
+  <p>Spendful contains no analytics, advertising, crash reporting, or third-party tracking.</p>
+  <p>This means:</p>
+  <ul>
+    <li>No telemetry</li>
+    <li>No behavioral tracking</li>
+    <li>No advertising identifiers</li>
+    <li>No user profiling</li>
+  </ul>
+  <p>Your activity inside the app is not monitored or transmitted.</p>
 
-      <h2>7. Summary of External Data Flows</h2>
-      <table>
-        <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Data sent externally</th>
-          <th>Recipient</th>
-          <th>Optional?</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>Receipt Scanning</td>
-          <td>Receipt image (processed)</td>
-          <td>OpenAI API</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>AI Insights</td>
-          <td>Spending summaries (dates, amounts, categories, notes)</td>
-          <td>OpenAI API</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>Currency Conversion</td>
-          <td>Currency code (e.g. “USD”)</td>
-          <td>open.er-api.com</td>
-          <td>Yes</td>
-        </tr>
-        <tr>
-          <td>In-App Purchases</td>
-          <td>Purchase transaction</td>
-          <td>Apple / Google</td>
-          <td>Yes (premium features)</td>
-        </tr>
-        <tr>
-          <td>All other features</td>
-          <td>Nothing — stored locally</td>
-          <td>—</td>
-          <td>N/A</td>
-        </tr>
-        </tbody>
-      </table>
+  <h2>7. Summary of External Data Flows</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Data sent externally</th>
+      <th>Recipient</th>
+      <th>Optional?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Receipt Scanning</td>
+      <td>Receipt image (processed)</td>
+      <td>OpenAI API</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>AI Insights</td>
+      <td>Spending summaries (dates, amounts, categories, notes)</td>
+      <td>OpenAI API</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Currency Conversion</td>
+      <td>Currency code (e.g. “USD”)</td>
+      <td>open.er-api.com</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>In-App Purchases</td>
+      <td>Purchase transaction</td>
+      <td>Apple / Google</td>
+      <td>Yes (premium features)</td>
+    </tr>
+    <tr>
+      <td>All other features</td>
+      <td>Nothing — stored locally</td>
+      <td>—</td>
+      <td>N/A</td>
+    </tr>
+    </tbody>
+  </table>
 
-      <h2>8. Children’s Privacy</h2>
-      <p>Spendful is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
+  <h2>8. Children’s Privacy</h2>
+  <p>Spendful is not directed at children under the age of 13. We do not knowingly collect personal information from children.</p>
 
-      <h2>9. Changes to This Policy</h2>
-      <p>If we make material changes to this policy, we will update the “Last updated” date at the top of this document. Continued use of the app after changes constitutes acceptance of the revised policy.</p>
+  <h2>9. Changes to This Policy</h2>
+  <p>If we make material changes to this policy, we will update the “Last updated” date at the top of this document. Continued use of the app after changes constitutes acceptance of the revised policy.</p>
 
-      <h2>10. Contact</h2>
-      <p>
-        If you have questions about this privacy policy, please contact:
-        <a href="mailto:buihdk@gmail.com">buihdk@gmail.com</a>
-      </p>
-    </div>
-  </section>
+  <h2>10. Contact</h2>
+  <p>
+    If you have questions about this privacy policy, please contact:
+    <a href="mailto:buihdk@gmail.com">buihdk@gmail.com</a>
+  </p>
 </Layout>
