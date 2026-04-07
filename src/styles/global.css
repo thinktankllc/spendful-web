@@ -29,8 +29,6 @@
   --color-dark-on-surface-variant: #bfc9c6;
   --font-sans: 'Inter Variable', sans-serif;
   --font-serif: 'Playfair Display Variable', serif;
-  --radius-lg: 2rem;
-  --radius-xl: 3rem;
 }
 
 @layer base {

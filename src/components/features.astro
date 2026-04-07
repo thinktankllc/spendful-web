@@ -10,11 +10,7 @@ import { Scan, Smartphone, Wallet } from '@lucide/astro'
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!--motion-->
-      <!--whileHover={{ y: -10 }}-->
-      <div
-        class="md:col-span-2 bg-surface-container-lowest p-12 rounded-xl flex flex-col justify-between group overflow-hidden relative"
-      >
+      <div class="md:col-span-2 bg-surface-container-lowest p-12 rounded-[3rem] flex flex-col justify-between group overflow-hidden relative hover:-translate-y-2 transition-transform">
         <div class="space-y-6 max-w-md z-10">
           <Smartphone class="w-12 h-12 text-primary" />
           <h3 class="font-serif text-3xl font-bold text-on-surface">Daily awareness</h3>
@@ -31,11 +27,7 @@ import { Scan, Smartphone, Wallet } from '@lucide/astro'
         </div>
       </div>
 
-      <!--motion-->
-      <!--whileHover={{ y: -10 }}-->
-      <div
-        class="bg-primary p-12 rounded-xl flex flex-col justify-between text-on-primary"
-      >
+      <div class="bg-primary p-12 rounded-[3rem] flex flex-col justify-between text-on-primary hover:-translate-y-2 transition-transform">
         <Wallet class="w-12 h-12" />
         <div class="space-y-4">
           <h3 class="font-serif text-2xl font-bold">Simple spend tracking</h3>
@@ -43,11 +35,7 @@ import { Scan, Smartphone, Wallet } from '@lucide/astro'
         </div>
       </div>
 
-      <!--motion-->
-      <!--whileHover={{ y: -10 }}-->
-      <div
-        class="bg-surface-container-lowest p-12 rounded-xl flex flex-col justify-between shadow-sm border border-on-surface/5"
-      >
+      <div class="bg-surface-container-lowest p-12 rounded-[3rem] flex flex-col justify-between shadow-sm border border-on-surface/5 hover:-translate-y-2 transition-transform">
         <Scan class="w-12 h-12 text-tertiary" />
         <div class="space-y-4">
           <h3 class="font-serif text-2xl font-bold text-on-surface">AI Receipt Scanning</h3>
@@ -55,16 +43,12 @@ import { Scan, Smartphone, Wallet } from '@lucide/astro'
         </div>
       </div>
 
-      <!--motion-->
-      <!--whileHover={{ y: -10 }}-->
-      <div
-        class="md:col-span-2 bg-secondary-container dark:bg-secondary-container/10 p-12 rounded-xl flex flex-col md:flex-row items-center gap-12"
-      >
+      <div class="md:col-span-2 bg-secondary-container dark:bg-secondary-container/10 p-12 rounded-[3rem] flex flex-col md:flex-row items-center gap-12 hover:-translate-y-2 transition-transform">
         <div class="space-y-6 flex-1">
           <h3 class="font-serif text-3xl font-bold text-on-surface tracking-tight">Editorial Financial Insights</h3>
           <p class="text-on-surface-variant">Receive weekly digests written like your favorite magazine, translating your data into a narrative of your life.</p>
         </div>
-        <div class="w-full md:w-64 h-48 rounded-lg overflow-hidden shrink-0">
+        <div class="w-full md:w-64 h-48 rounded-4xl overflow-hidden shrink-0">
           <img
             class="w-full h-full object-cover"
             alt="Editorial insights"
