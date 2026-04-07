@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/content.astro
 title: Privacy Policy
+description: Spendful keeps your spending data on your device. No analytics, no tracking, no ads. Learn exactly what data is stored and what stays private.
 ---
 
 **Last updated**: March 2026
