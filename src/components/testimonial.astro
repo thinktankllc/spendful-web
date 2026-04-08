@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import { Quote } from '@lucide/astro'
 ---
 
@@ -9,18 +8,12 @@ import { Quote } from '@lucide/astro'
       <Quote class="w-16 h-16 text-tertiary dark:text-primary opacity-20" />
       <blockquote class="font-serif text-4xl md:text-5xl font-light leading-tight text-on-surface italic before:content-['“'] after:content-['”']">It changed the way I think about money. Spendful isn’t just an app; it’s a breathing room for my financial life.</blockquote>
       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full overflow-hidden">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU21JL4ygjyU88z4TS_WX_R7XhJao7Ok0SZJE_PFTlKiz4vDQrL-GfL1eNrNRonPEQq_VMx0Udm3WOTkD5HT9FmhS2DpLfJo2vIoXQZGXCgl6uZGNQC35HwDZzjV98BwT0SW7gVFCjXBnZtrqLzo_V71gv7bXUFrR2UfZWjiO7XTXtiKxpejIVFGy-U3w-73b5-5M-dIT9AWjT5flXmqE9wA_EyuZnoXHoIvgMevb1HWw1vIDqKeATobLlO6ZMGIcRpbeiw3AZe14"
-            width={48}
-            height={48}
-            alt="Sarah Sterling"
-            class="w-full h-full object-cover"
-          />
+        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+          <span class="font-serif font-bold text-primary text-lg">S</span>
         </div>
         <div class="text-left">
-          <p class="font-serif font-bold text-on-surface">Sarah Sterling</p>
-          <p class="text-xs text-on-surface-variant uppercase tracking-widest">Creative Director</p>
+          <p class="font-serif font-bold text-on-surface">Sarah</p>
+          <p class="text-xs text-on-surface-variant uppercase tracking-widest">★★★★★ App Store Review</p>
         </div>
       </div>
     </div>
