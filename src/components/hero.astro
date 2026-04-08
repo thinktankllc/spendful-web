@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets'
-import { Sparkles } from '@lucide/astro'
+import { Sparkles, ShieldCheck, Lock, Download } from '@lucide/astro'
 
 import screenMonth from '@/assets/screen-month.png'
 import screenMonthDark from '@/assets/screen-month-dark.png'
@@ -29,8 +29,23 @@ import screenMonthDark from '@/assets/screen-month-dark.png'
       </h1>
 
       <p class="text-xl text-on-surface-variant max-w-lg leading-relaxed font-light">
-        Transform your relationship with money through intentional tracking. We don’t just count cents; we cultivate presence.
+        One daily question: <em>"Did you spend money today?"</em> No budgets, no bank links, no stress — just gentle awareness of where your money goes.
       </p>
+
+      <div class="flex flex-wrap gap-x-6 gap-y-2">
+        <span class="flex items-center gap-2 text-sm text-on-surface-variant">
+          <ShieldCheck class="w-4 h-4 text-primary shrink-0" />
+          No account needed
+        </span>
+        <span class="flex items-center gap-2 text-sm text-on-surface-variant">
+          <Lock class="w-4 h-4 text-primary shrink-0" />
+          Data stays on your device
+        </span>
+        <span class="flex items-center gap-2 text-sm text-on-surface-variant">
+          <Download class="w-4 h-4 text-primary shrink-0" />
+          Free to download
+        </span>
+      </div>
 
       <div class="flex items-center gap-4 pt-4 max-sm:justify-between sm:gap-6">
         <a href="https://apps.apple.com/app/id6757114071" target="_blank" rel="noopener noreferrer">

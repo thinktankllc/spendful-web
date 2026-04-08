@@ -3,7 +3,7 @@ import { Menu, Moon, Sun, X } from '@lucide/astro'
 
 const { minimal } = Astro.props
 
-const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
+const SECTIONS = ['Features', 'Benefits', 'Download']
 ---
 
 <header class="fixed top-0 z-50 border-b border-b-transparent w-full py-6 transition-all duration-300">
@@ -29,9 +29,9 @@ const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
           <Moon class="icon-moon size-6" />
           <Sun class="icon-sun size-6" />
         </button>
-        <button class="hidden sm:block bg-primary hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10">
-          Begin Journey
-        </button>
+        <a href="#download" class="hidden sm:block bg-primary hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10">
+          Download Free
+        </a>
         <button onclick="toggleMobileMenu()" aria-label="Toggle menu" class="toggle-menu md:hidden text-on-surface">
           <X class="icon-x" />
           <Menu class="icon-menu" />
@@ -46,9 +46,9 @@ const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
         {item}
       </a>
     ))}
-    <button class="w-full bg-primary text-on-primary py-4 rounded-xl font-medium">
-      Begin Journey
-    </button>
+    <a href="#download" class="w-full bg-primary text-on-primary py-4 rounded-xl font-medium text-center block">
+      Download Free
+    </a>
   </div>
 </header>
 
@@ -109,7 +109,6 @@ themeToggle?.addEventListener('click', function () {
 
 window.addEventListener('scroll', function () {
   const isScrolled = window.scrollY > 20
-  console.info({window})
 
   if (isScrolled) {
     header.classList.add('glass')
