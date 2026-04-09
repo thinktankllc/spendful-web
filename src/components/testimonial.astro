@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets'
 import { Quote } from '@lucide/astro'
+
 import hannahImg from '@/assets/hannah.png'
 import lukeImg from '@/assets/luke.jpg'
 
@@ -80,12 +82,13 @@ const TESTIMONIALS = [
               {t.quote}
             </blockquote>
             <div class="flex items-center gap-3">
-              <img
-                src={typeof t.avatar === 'string' ? t.avatar : t.avatar.src}
+              <Image
+                src={t.avatar as ImageMetadata}
+                width={40}
+                height={40}
                 alt={t.name}
-                width="40"
-                height="40"
-                class="w-10 h-10 rounded-full object-cover shrink-0"
+                widths={[40, 80]}
+                class="size-10 rounded-full object-cover shrink-0"
               />
               <div class="text-left">
                 <p class="font-serif font-bold text-on-surface">{t.name}</p>
