@@ -1,0 +1,173 @@
+---
+import Layout from '@/layouts/main.astro'
+
+const title = 'Questions, answered simply.'
+const description = 'Common questions about Spendful — how it works, what data it stores, and what to expect from the app.'
+
+const QA = [
+  {
+    q: 'Is Spendful a budgeting app?',
+    a: ['No. Spendful isn\'t built around budgets or limits.', 'It\'s a simple way to notice your spending — one day at a time.'],
+  },
+  {
+    q: 'How is this different from other finance apps?',
+    a: ['Most apps focus on control — budgets, tracking, and optimization.', 'Spendful focuses on awareness.', 'Instead of trying to change your behavior directly, it helps you see it more clearly.'],
+  },
+  {
+    q: 'Why does the app feel so simple?',
+    a: ['That\'s intentional.', 'Spendful is designed to reduce friction, not add more structure. The goal is awareness, not complexity.'],
+  },
+  {
+    q: 'How long does it take to use each day?',
+    a: ['Usually less than a minute.', 'Just a quick check-in to log your spending — or note that you didn\'t spend anything.'],
+  },
+  {
+    q: 'Do I need to use it every day?',
+    a: ['No.', 'But it works best as a light daily habit — something you check in with, not something you manage.'],
+  },
+  {
+    q: 'Will this actually help me spend less?',
+    a: ['It\'s not about forcing change.', 'But many people find that once they become aware of their spending, their habits naturally shift.'],
+  },
+  {
+    q: 'What happens if I stop using the app?',
+    a: ['Nothing.', 'There are no streaks or penalties. You can come back anytime.'],
+  },
+  {
+    q: 'Do I need to connect my bank account?',
+    a: ['No.', 'Spendful doesn\'t connect to your bank and doesn\'t require an account. Everything stays on your device.'],
+  },
+  {
+    q: 'Is my data private?',
+    a: ['Yes.', 'Your data is stored locally on your device. No accounts, no tracking, no analytics.'],
+  },
+  {
+    q: 'Can I export my data?',
+    a: ['Yes. You can export all of your entries as a CSV or JSON file at any time from within the app. The file is saved to your device — Spendful does not upload it anywhere.'],
+  },
+  {
+    q: 'Does Spendful work without internet?',
+    a: ['Yes.', 'The app is designed to work offline. Your data stays on your device.'],
+  },
+  {
+    q: 'Is it free?',
+    a: ['Yes. Spendful is free to download and use. Some optional features — like AI spending insights and receipt scanning — are available as part of a premium plan you can try inside the app.'],
+  },
+  {
+    q: 'What are AI features, and do I have to use them?',
+    a: ['Spendful has two optional AI features: receipt scanning and spending insights. Both require an internet connection and send limited data to an AI provider to complete the task. The app works fully without them — they\'re there if you want them, not required.'],
+  },
+  {
+    q: 'Does receipt scanning save my photos?',
+    a: ['No. When you scan a receipt, the image is sent to an AI service for processing and then discarded. Spendful does not store receipt images externally.'],
+  },
+  {
+    q: 'Is there a daily reminder?',
+    a: ['Yes. You can enable a daily notification to prompt you to log your spending. The reminder schedule stays on your device and is never transmitted anywhere.'],
+  },
+  {
+    q: 'What platforms is Spendful available on?',
+    a: ['Spendful is available on iPhone (iOS) and Android. You can find it on the App Store and Google Play.'],
+  },
+  {
+    q: 'What is a \u201Cspending intention\u201D?',
+    a: ['It\'s a gentle reference point for your month — not a strict limit.', 'It helps you understand your pace, without pressure.'],
+  },
+  {
+    q: 'Something isn\'t working. How do I get help?',
+    a: ['Email us at <a href="mailto:buihdk@gmail.com">buihdk@gmail.com</a>. We typically respond within 1\u20132 business days.'],
+  },
+]
+---
+
+<Layout title={title} description={description} minimal>
+  <section class="min-h-screen pt-24 pb-16 sm:pt-32">
+    <div class="container typo text-on-surface-variant typo-headings:text-primary typo-headings:font-serif typo-headings:italic typo-strong:text-on-surface-variant typo-a:text-primary typo-blockquote:text-primary">
+      <h1 class="text-center">{title}</h1>
+      {QA.map(({ q, a }) => (
+        <div>
+          <h2 class="qa-q">{q}</h2>
+          <div class="qa-a">
+            <div>
+              {a.map(para => <p set:html={para} />)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .qa-q {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0 !important;
+    font-size: 1.125rem !important;
+  }
+
+  .qa-q::after {
+    content: '+';
+    font-style: normal;
+    font-size: 1.25rem;
+    font-weight: 300;
+    font-family: var(--font-sans);
+    color: var(--color-primary);
+    opacity: 0.5;
+    flex-shrink: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .qa-q[aria-expanded="true"]::after {
+    content: '\2212'; /* − */
+    opacity: 0.8;
+  }
+
+  .qa-a {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 250ms ease;
+  }
+
+  .qa-a.open {
+    grid-template-rows: 1fr;
+  }
+
+  .qa-a > div {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  const headings = document.querySelectorAll<HTMLElement>('.qa-q')
+  let openAnswer: Element | null = null
+  let openHeading: Element | null = null
+
+  headings.forEach(h2 => {
+    const answer = h2.nextElementSibling as HTMLElement
+    h2.setAttribute('aria-expanded', 'false')
+
+    function toggle() {
+      const isOpen = answer.classList.contains('open')
+
+      if (openAnswer && openAnswer !== answer) {
+        openAnswer.classList.remove('open')
+        openHeading?.setAttribute('aria-expanded', 'false')
+      }
+
+      answer.classList.toggle('open', !isOpen)
+      h2.setAttribute('aria-expanded', String(!isOpen))
+      openAnswer  = !isOpen ? answer  : null
+      openHeading = !isOpen ? h2     : null
+    }
+
+    h2.addEventListener('click', toggle)
+    h2.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle() }
+    })
+  })
+</script>
