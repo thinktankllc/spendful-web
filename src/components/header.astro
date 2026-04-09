@@ -3,17 +3,17 @@ import { Menu, Moon, Sun, X } from '@lucide/astro'
 
 const { minimal } = Astro.props
 
-const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
+const SECTIONS = ['Features', 'Benefits']
 ---
 
 <header class="fixed top-0 z-50 border-b border-b-transparent w-full py-6 transition-all duration-300">
   <div class:list={['container flex items-center', minimal ? 'justify-center' : 'justify-between']}>
-    <a href="/" class="font-serif italic text-2xl font-extrabold tracking-tighter text-primary">
+    <a href={minimal ? '/' : '#'} class="font-serif italic text-2xl font-extrabold tracking-tighter text-primary">
       Spendful
     </a>
 
     {!minimal && (
-      <nav class="hidden md:flex items-center gap-10 text-sm font-medium">
+      <nav class="hidden md:flex items-center gap-30 text-lg font-medium">
         {SECTIONS.map((item) => (
           <a href={`#${item.toLowerCase()}`} class="text-on-surface-variant hover:text-primary transition-colors">
             {item}
@@ -29,9 +29,9 @@ const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
           <Moon class="icon-moon size-6" />
           <Sun class="icon-sun size-6" />
         </button>
-        <button class="hidden sm:block bg-primary hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10">
+        <a href="#download" class="hidden sm:block bg-primary hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10">
           Begin Journey
-        </button>
+        </a>
         <button onclick="toggleMobileMenu()" aria-label="Toggle menu" class="toggle-menu md:hidden text-on-surface">
           <X class="icon-x" />
           <Menu class="icon-menu" />
@@ -42,13 +42,13 @@ const SECTIONS = ['Essence', 'Flow', 'Circle', 'Journal']
 
   <div class="menu md:hidden absolute top-full left-0 w-full bg-surface border-b border-on-surface/5 p-6 space-y-4 shadow-xl">
     {SECTIONS.map((item) => (
-      <a href={`#${item.toLowerCase()}`} class="block text-lg font-medium text-on-surface">
+      <a href={`#${item.toLowerCase()}`} class="block text-md font-medium text-on-surface text-center">
         {item}
       </a>
     ))}
-    <button class="w-full bg-primary text-on-primary py-4 rounded-xl font-medium">
+    <a href="#download" class="w-full bg-primary text-on-primary py-4 rounded-xl font-medium text-center block">
       Begin Journey
-    </button>
+    </a>
   </div>
 </header>
 
@@ -109,7 +109,6 @@ themeToggle?.addEventListener('click', function () {
 
 window.addEventListener('scroll', function () {
   const isScrolled = window.scrollY > 20
-  console.info({window})
 
   if (isScrolled) {
     header.classList.add('glass')

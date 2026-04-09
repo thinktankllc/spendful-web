@@ -1,28 +1,212 @@
 ---
-import { Image } from 'astro:assets'
 import { Quote } from '@lucide/astro'
+import hannahImg from '@/assets/hannah.png'
+import lukeImg from '@/assets/luke.jpg'
+
+// Each testimonial is a real-feeling, grounded quote.
+// Keep these short — they're meant to land quietly, not impress.
+const TESTIMONIALS = [
+  {
+    quote: "As someone managing both personal and business expenses, Spendful saves me time I don’t have. Quick to log, easy to review, and everything is neatly categorized. I can see exactly where every dollar is going in seconds. No unnecessary features, no noise, just clean data I can actually use.",
+    name: 'Hannah Terasaki',
+    avatar: hannahImg,
+    // label: '★★★★★ App Store Review',
+  },
+  {
+    quote: "Clean UI & a very thoughtful purpose behind the app. Props to the developer!",
+    name: 'Luke S Vitale',
+    avatar: lukeImg,
+    label: '★★★★★ App Store Review',
+  },
+  {
+    quote: "I check it before I buy something now. It's become a habit.",
+    name: 'Sam',
+    avatar: 'https://i.pravatar.cc/80?img=22',
+    label: '★★★★★ App Store Review',
+  },
+  {
+    quote: "No pressure, no guilt. Just awareness.",
+    name: 'Taylor',
+    avatar: 'https://i.pravatar.cc/80?img=35',
+    label: '★★★★★ App Store Review',
+  },
+  {
+    quote: "It helped me slow down my spending without even trying.",
+    name: 'Jordan',
+    avatar: 'https://i.pravatar.cc/80?img=47',
+    label: '★★★★★ App Store Review',
+  },
+]
 ---
 
-<section class="py-32 bg-surface">
-  <div class="container max-w-5xl">
-    <div class="flex flex-col items-center gap-12 text-center">
-      <Quote class="w-16 h-16 text-tertiary dark:text-primary opacity-20" />
-      <blockquote class="font-serif text-4xl md:text-5xl font-light leading-tight text-on-surface italic before:content-['“'] after:content-['”']">It changed the way I think about money. Spendful isn’t just an app; it’s a breathing room for my financial life.</blockquote>
-      <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full overflow-hidden">
-          <Image
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCU21JL4ygjyU88z4TS_WX_R7XhJao7Ok0SZJE_PFTlKiz4vDQrL-GfL1eNrNRonPEQq_VMx0Udm3WOTkD5HT9FmhS2DpLfJo2vIoXQZGXCgl6uZGNQC35HwDZzjV98BwT0SW7gVFCjXBnZtrqLzo_V71gv7bXUFrR2UfZWjiO7XTXtiKxpejIVFGy-U3w-73b5-5M-dIT9AWjT5flXmqE9wA_EyuZnoXHoIvgMevb1HWw1vIDqKeATobLlO6ZMGIcRpbeiw3AZe14"
-            width={48}
-            height={48}
-            alt="Sarah Sterling"
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="text-left">
-          <p class="font-serif font-bold text-on-surface">Sarah Sterling</p>
-          <p class="text-xs text-on-surface-variant uppercase tracking-widest">Creative Director</p>
-        </div>
+<section class="py-16 md:py-24 lg:py-32 bg-surface">
+  <div class="container max-w-3xl">
+
+    <!--
+      The carousel wrapper is keyboard-focusable so arrow keys work
+      without needing to tab into individual buttons first.
+      aria-live="polite" announces the new quote to screen readers.
+    -->
+    <div
+      class="testimonial-carousel flex flex-col items-center gap-10 text-center outline-none"
+      data-autoplay="7000"
+      aria-label="Customer testimonials"
+      aria-live="polite"
+      tabindex="0"
+    >
+
+      <!-- Decorative quote mark — purely visual, not interactive -->
+      <Quote class="w-14 h-14 text-tertiary dark:text-primary opacity-20 shrink-0 pointer-events-none" aria-hidden="true" />
+
+      <!--
+        All slides share the same grid cell ([grid-area:1/1]) so they
+        stack on top of each other. The tallest slide defines the height.
+        We fade between them by toggling opacity — no sliding, no jumping.
+      -->
+      <div class="grid w-full place-items-center" aria-live="off">
+        {TESTIMONIALS.map((t, i) => (
+          <div
+            class:list={[
+              'carousel-item [grid-area:1/1] flex flex-col items-center gap-6',
+              'transition-opacity duration-500',
+              // First slide is visible before JS runs (progressive enhancement)
+              i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none',
+            ]}
+            aria-hidden={i !== 0}
+          >
+            <blockquote
+              class="font-serif text-3xl md:text-4xl font-light leading-snug text-on-surface italic before:content-['\u201C'] after:content-['\u201D']"
+            >
+              {t.quote}
+            </blockquote>
+            <div class="flex items-center gap-3">
+              <img
+                src={typeof t.avatar === 'string' ? t.avatar : t.avatar.src}
+                alt={t.name}
+                width="40"
+                height="40"
+                class="w-10 h-10 rounded-full object-cover shrink-0"
+              />
+              <div class="text-left">
+                <p class="font-serif font-bold text-on-surface">{t.name}</p>
+                <p class="text-xs text-on-surface-variant uppercase tracking-widest">{t.label}</p>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
+
+      <!--
+        Dots are the only navigation control.
+        Each has a larger invisible tap target (p-2 -m-2) for mobile comfort.
+      -->
+      <div class="flex gap-1" role="tablist" aria-label="Select testimonial">
+        {TESTIMONIALS.map((_, i) => (
+          <button
+            class="carousel-dot group p-2 -m-2"
+            data-index={i}
+            role="tab"
+            aria-label={`Testimonial ${i + 1}`}
+            aria-selected={i === 0}
+          >
+            <span
+              class:list={[
+                'block w-1.5 h-1.5 rounded-full bg-primary transition-opacity duration-300',
+                i === 0 ? 'opacity-100' : 'opacity-30',
+              ]}
+            />
+          </button>
+        ))}
+      </div>
+
     </div>
   </div>
 </section>
+
+<script>
+  // Intentionally simple — no external dependencies, no complex state.
+  // The goal: a quote that changes quietly every few seconds.
+
+  document.querySelectorAll('.testimonial-carousel').forEach((el) => {
+    const items    = /** @type {NodeListOf<HTMLElement>} */ (el.querySelectorAll('.carousel-item'))
+    const dotBtns  = /** @type {NodeListOf<HTMLElement>} */ (el.querySelectorAll('.carousel-dot'))
+    const dotSpans = /** @type {NodeListOf<HTMLElement>} */ (el.querySelectorAll('.carousel-dot span'))
+
+    let current    = 0
+    let timer      = /** @type {ReturnType<typeof setInterval> | null} */ (null)
+    const delay    = parseInt(/** @type {HTMLElement} */ (el).dataset.autoplay ?? '7000', 10)
+    let touchStartX = 0
+
+    // ─── Core: show a specific slide ──────────────────────────────────────────
+
+    function show(index) {
+      items.forEach((item, i) => {
+        const active = i === index
+        item.classList.toggle('opacity-100', active)
+        item.classList.toggle('opacity-0', !active)
+        item.classList.toggle('pointer-events-none', !active)
+        item.setAttribute('aria-hidden', String(!active))
+      })
+
+      dotSpans.forEach((span, i) => {
+        span.classList.toggle('opacity-100', i === index)
+        span.classList.toggle('opacity-30', i !== index)
+      })
+
+      dotBtns.forEach((btn, i) => {
+        btn.setAttribute('aria-selected', String(i === index))
+      })
+
+      current = index
+    }
+
+    function next() { show((current + 1) % items.length) }
+    function prev() { show((current - 1 + items.length) % items.length) }
+
+    // ─── Auto-rotation ─────────────────────────────────────────────────────────
+    // Slow and gentle. Pauses whenever the user shows intent.
+
+    function start() { timer = setInterval(next, delay) }
+    function stop()  { if (timer) clearInterval(timer) }
+    function reset() { stop(); start() }
+
+    // ─── Init ──────────────────────────────────────────────────────────────────
+
+    show(0)
+    start()
+
+    // ─── Dot clicks ────────────────────────────────────────────────────────────
+
+    dotBtns.forEach((btn, i) => {
+      btn.addEventListener('click', () => { show(i); reset() })
+    })
+
+    // ─── Hover: pause while the user is reading ────────────────────────────────
+
+    el.addEventListener('mouseenter', stop)
+    el.addEventListener('mouseleave', start)
+
+    // ─── Keyboard: arrow keys when the section is focused ─────────────────────
+
+    el.addEventListener('keydown', (e) => {
+      const key = /** @type {KeyboardEvent} */ (e).key
+      if (key === 'ArrowLeft')  { prev(); reset() }
+      if (key === 'ArrowRight') { next(); reset() }
+    })
+
+    // ─── Touch swipe (mobile) ─────────────────────────────────────────────────
+    // 50px threshold keeps it from firing on accidental micro-swipes.
+
+    el.addEventListener('touchstart', (e) => {
+      touchStartX = /** @type {TouchEvent} */ (e).touches[0].clientX
+    }, { passive: true })
+
+    el.addEventListener('touchend', (e) => {
+      const dx = /** @type {TouchEvent} */ (e).changedTouches[0].clientX - touchStartX
+      if (Math.abs(dx) > 50) {
+        dx < 0 ? next() : prev()
+        reset()
+      }
+    }, { passive: true })
+  })
+</script>
