@@ -5,8 +5,8 @@ import Header from '@/components/header.astro'
 
 const { description, minimal, title } = Astro.props
 
-const siteTitle = title ? `${title} — Spendful` : 'Spendful'
-const siteDescription = description || 'Spendful is a calm, local-first spending journal. Track daily expenses with intention — no budgets, no stress, just gentle awareness of where your money goes.'
+const metaTitle = title ? `${title} — Spendful` : 'Spendful'
+const metaDescription = description || 'Spendful is a calm, local-first spending journal. Track daily expenses with intention — no budgets, no stress, just gentle awareness of where your money goes.'
 ---
 
 <html lang="en">
@@ -15,8 +15,22 @@ const siteDescription = description || 'Spendful is a calm, local-first spending
 <meta charset="utf-8" />
 <link rel="icon" type="image/svg+xml" href="/spendful-icon.icon/Assets/head-grow.svg" />
 <meta name="viewport" content="width=device-width" />
-<title>{siteTitle}</title>
-<meta name="description" content={siteDescription} />
+<title>{metaTitle}</title>
+<meta name="description" content={metaDescription} />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" sizes="512x512" />
+
+<meta property="og:url" content="https://spendful.io" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={metaTitle} />
+<meta property="og:description" content={metaDescription} />
+<meta property="og:image" content="https://spendful.io/og.png" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content="nhan.dev" />
+<meta property="twitter:url" content="https://spendful.io" />
+<meta name="twitter:title" content={metaTitle} />
+<meta name="twitter:description" content={metaDescription} />
+<meta name="twitter:image" content="https://spendful.io/og.png" />
 </head>
 <body>
 <main>

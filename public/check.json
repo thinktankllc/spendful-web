@@ -1,0 +1,13 @@
+{
+  "version": {
+    "android": "",
+    "ios": "1.4.2"
+  },
+  "force": false,
+  "title": "",
+  "message": "",
+  "button": {
+    "no": "",
+    "yes": ""
+  }
+}
