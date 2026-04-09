@@ -1,13 +1,16 @@
 ---
 import Layout from '@/layouts/main.astro'
 
-const { frontmatter } = Astro.props
+const { frontmatter, title, description } = Astro.props
+
+const pageTitle = frontmatter ? frontmatter.title : title
+const pageDescription = frontmatter ? frontmatter.description : description
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description} minimal>
+<Layout title={pageTitle} description={pageDescription} minimal>
   <section class="min-h-screen pt-32 pb-24 sm:pt-40">
     <div class="container typo text-on-surface-variant typo-headings:text-primary typo-headings:font-serif typo-headings:italic typo-strong:text-on-surface-variant typo-a:text-primary typo-blockquote:text-primary">
-      <h1 class="mb-16 text-center">{frontmatter.title}</h1>
+      <h1 class="mb-16 text-center">{pageTitle}</h1>
       <slot />
     </div>
   </section>
