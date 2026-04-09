@@ -3,10 +3,8 @@
 
 <section class="py-16 md:py-24 lg:py-32 mt-28" id="download">
   <div class="container">
-    <div class="bg-primary-container rounded-[3rem] py-16 px-8 md:p-24 flex flex-col items-center text-center space-y-10 relative overflow-hidden">
-      <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div class="absolute top-0 right-0 w-96 h-96 bg-white blur-[150px]"></div>
-      </div>
+    <div class="background-gradient bg-primary-container bg-cover rounded-[3rem] py-16 px-8 md:p-24 flex flex-col items-center text-center space-y-10 relative overflow-hidden">
+      <div class="absolute top-0 left-0 backdrop-blur-[100px] saturate-150 size-full" />
       <h2 class="font-serif text-5xl md:text-7xl font-extrabold text-on-primary-container tracking-tighter leading-tight z-10">
         A calmer way to track<br /><span class="italic">your spending.</span>
       </h2>
@@ -36,3 +34,12 @@
     </div>
   </div>
 </section>
+
+<style>
+.background-gradient {
+  background-image:
+    linear-gradient(to bottom, transparent 20%, color-mix(in oklab, var(--color-black) 80%, transparent)),
+    url(/apple-touch-icon.png);
+  background-position: 50%;
+}
+</style>
