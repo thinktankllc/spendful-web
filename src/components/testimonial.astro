@@ -7,31 +7,31 @@ import lukeImg from '@/assets/luke.jpg'
 // Keep these short — they're meant to land quietly, not impress.
 const TESTIMONIALS = [
   {
-    quote: "As someone managing both personal and business expenses, Spendful saves me time I don’t have. Quick to log, easy to review, and everything is neatly categorized. I can see exactly where every dollar is going in seconds. No unnecessary features, no noise, just clean data I can actually use.",
+    quote: 'As someone managing both personal and business expenses, Spendful saves me time I don’t have. Quick to log, easy to review, and everything is neatly categorized. I can see exactly where every dollar is going in seconds. No unnecessary features, no noise, just clean data I can actually use.',
     name: 'Hannah Terasaki',
     avatar: hannahImg,
     // label: '★★★★★ App Store Review',
   },
   {
-    quote: "Clean UI & a very thoughtful purpose behind the app. Props to the developer!",
+    quote: 'Clean UI & a very thoughtful purpose behind the app. Props to the developer!',
     name: 'Luke S Vitale',
     avatar: lukeImg,
     label: '★★★★★ App Store Review',
   },
   {
-    quote: "I check it before I buy something now. It's become a habit.",
+    quote: 'I check it before I buy something now. It’s become a habit.',
     name: 'Sam',
     avatar: 'https://i.pravatar.cc/80?img=22',
     label: '★★★★★ App Store Review',
   },
   {
-    quote: "No pressure, no guilt. Just awareness.",
+    quote: 'No pressure, no guilt. Just awareness.',
     name: 'Taylor',
     avatar: 'https://i.pravatar.cc/80?img=35',
     label: '★★★★★ App Store Review',
   },
   {
-    quote: "It helped me slow down my spending without even trying.",
+    quote: 'It helped me slow down my spending without even trying.',
     name: 'Jordan',
     avatar: 'https://i.pravatar.cc/80?img=47',
     label: '★★★★★ App Store Review',
@@ -127,20 +127,20 @@ const TESTIMONIALS = [
   // Intentionally simple — no external dependencies, no complex state.
   // The goal: a quote that changes quietly every few seconds.
 
-  document.querySelectorAll('.testimonial-carousel').forEach((el) => {
-    const items    = /** @type {NodeListOf<HTMLElement>} */ (el.querySelectorAll('.carousel-item'))
-    const dotBtns  = /** @type {NodeListOf<HTMLElement>} */ (el.querySelectorAll('.carousel-dot'))
-    const dotSpans = /** @type {NodeListOf<HTMLElement>} */ (el.querySelectorAll('.carousel-dot span'))
+  document.querySelectorAll('.testimonial-carousel').forEach(function (el) {
+    const items    = el.querySelectorAll('.carousel-item')
+    const dotBtns  = el.querySelectorAll('.carousel-dot')
+    const dotSpans = el.querySelectorAll('.carousel-dot span')
 
     let current    = 0
-    let timer      = /** @type {ReturnType<typeof setInterval> | null} */ (null)
-    const delay    = parseInt(/** @type {HTMLElement} */ (el).dataset.autoplay ?? '7000', 10)
+    let timer      = null
+    const delay    = parseInt(el.getAttribute('data-autoplay') ?? '7000', 10)
     let touchStartX = 0
 
     // ─── Core: show a specific slide ──────────────────────────────────────────
 
-    function show(index) {
-      items.forEach((item, i) => {
+    function show(index: number) {
+      items.forEach(function (item, i) {
         const active = i === index
         item.classList.toggle('opacity-100', active)
         item.classList.toggle('opacity-0', !active)
@@ -148,12 +148,12 @@ const TESTIMONIALS = [
         item.setAttribute('aria-hidden', String(!active))
       })
 
-      dotSpans.forEach((span, i) => {
+      dotSpans.forEach(function (span, i) {
         span.classList.toggle('opacity-100', i === index)
         span.classList.toggle('opacity-30', i !== index)
       })
 
-      dotBtns.forEach((btn, i) => {
+      dotBtns.forEach(function (btn, i) {
         btn.setAttribute('aria-selected', String(i === index))
       })
 
@@ -177,8 +177,8 @@ const TESTIMONIALS = [
 
     // ─── Dot clicks ────────────────────────────────────────────────────────────
 
-    dotBtns.forEach((btn, i) => {
-      btn.addEventListener('click', () => { show(i); reset() })
+    dotBtns.forEach(function (btn, i) {
+      btn.addEventListener('click', function () { show(i); reset() })
     })
 
     // ─── Hover: pause while the user is reading ────────────────────────────────
@@ -188,8 +188,8 @@ const TESTIMONIALS = [
 
     // ─── Keyboard: arrow keys when the section is focused ─────────────────────
 
-    el.addEventListener('keydown', (e) => {
-      const key = /** @type {KeyboardEvent} */ (e).key
+    el.addEventListener('keydown', function (e: KeyboardEvent) {
+      const key = e.key
       if (key === 'ArrowLeft')  { prev(); reset() }
       if (key === 'ArrowRight') { next(); reset() }
     })
@@ -197,12 +197,12 @@ const TESTIMONIALS = [
     // ─── Touch swipe (mobile) ─────────────────────────────────────────────────
     // 50px threshold keeps it from firing on accidental micro-swipes.
 
-    el.addEventListener('touchstart', (e) => {
-      touchStartX = /** @type {TouchEvent} */ (e).touches[0].clientX
+    el.addEventListener('touchstart', function (e: TouchEvent) {
+      touchStartX = e.touches[0].clientX
     }, { passive: true })
 
-    el.addEventListener('touchend', (e) => {
-      const dx = /** @type {TouchEvent} */ (e).changedTouches[0].clientX - touchStartX
+    el.addEventListener('touchend', function (e: TouchEvent) {
+      const dx = e.changedTouches[0].clientX - touchStartX
       if (Math.abs(dx) > 50) {
         dx < 0 ? next() : prev()
         reset()
