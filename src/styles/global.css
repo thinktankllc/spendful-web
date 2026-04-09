@@ -38,6 +38,10 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
+  * {
+    @apply outline-2 outline-offset-2 outline-transparent focus:outline-current focus:rounded-xs;
+  }
+
   html {
     @apply antialiased scroll-smooth;
   }

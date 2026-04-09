@@ -146,6 +146,18 @@ summary {
   font-style: italic;
   font-size: 1.125rem;
 
+  &:focus {
+    outline-color: transparent;
+  }
+
+  &:focus-visible {
+    outline-color: currentColor;
+  }
+
+  &::marker {
+    content: none;
+  }
+
   &::after {
     content: '+';
     opacity: 0.5;
