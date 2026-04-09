@@ -3,12 +3,12 @@ import { Menu, Moon, Sun, X } from '@lucide/astro'
 
 const { minimal } = Astro.props
 
-const SECTIONS = ['Features', 'Benefits', 'Download']
+const SECTIONS = ['Features', 'Benefits']
 ---
 
 <header class="fixed top-0 z-50 border-b border-b-transparent w-full py-6 transition-all duration-300">
   <div class:list={['container flex items-center', minimal ? 'justify-center' : 'justify-between']}>
-    <a href="/" class="font-serif italic text-2xl font-extrabold tracking-tighter text-primary">
+    <a href={minimal ? '/' : '#'} class="font-serif italic text-2xl font-extrabold tracking-tighter text-primary">
       Spendful
     </a>
 
@@ -42,7 +42,7 @@ const SECTIONS = ['Features', 'Benefits', 'Download']
 
   <div class="menu md:hidden absolute top-full left-0 w-full bg-surface border-b border-on-surface/5 p-6 space-y-4 shadow-xl">
     {SECTIONS.map((item) => (
-      <a href={`#${item.toLowerCase()}`} class="block text-lg font-medium text-on-surface">
+      <a href={`#${item.toLowerCase()}`} class="block text-lg font-medium text-on-surface text-center">
         {item}
       </a>
     ))}
