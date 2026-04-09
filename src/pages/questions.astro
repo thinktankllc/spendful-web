@@ -7,7 +7,7 @@ const description = 'Common questions about Spendful — how it works, what data
 const QA = [
   {
     q: 'Is Spendful a budgeting app?',
-    a: ['No. Spendful isn\'t built around budgets or limits.', 'It\'s a simple way to notice your spending — one day at a time.'],
+    a: ['No. Spendful isn’t built around budgets or limits.', 'It’s a simple way to notice your spending — one day at a time.'],
   },
   {
     q: 'How is this different from other finance apps?',
@@ -15,11 +15,11 @@ const QA = [
   },
   {
     q: 'Why does the app feel so simple?',
-    a: ['That\'s intentional.', 'Spendful is designed to reduce friction, not add more structure. The goal is awareness, not complexity.'],
+    a: ['That’s intentional.', 'Spendful is designed to reduce friction, not add more structure. The goal is awareness, not complexity.'],
   },
   {
     q: 'How long does it take to use each day?',
-    a: ['Usually less than a minute.', 'Just a quick check-in to log your spending — or note that you didn\'t spend anything.'],
+    a: ['Usually less than a minute.', 'Just a quick check-in to log your spending — or note that you didn’t spend anything.'],
   },
   {
     q: 'Do I need to use it every day?',
@@ -27,7 +27,7 @@ const QA = [
   },
   {
     q: 'Will this actually help me spend less?',
-    a: ['It\'s not about forcing change.', 'But many people find that once they become aware of their spending, their habits naturally shift.'],
+    a: ['It’s not about forcing change.', 'But many people find that once they become aware of their spending, their habits naturally shift.'],
   },
   {
     q: 'What happens if I stop using the app?',
@@ -35,7 +35,7 @@ const QA = [
   },
   {
     q: 'Do I need to connect my bank account?',
-    a: ['No.', 'Spendful doesn\'t connect to your bank and doesn\'t require an account. Everything stays on your device.'],
+    a: ['No.', 'Spendful doesn’t connect to your bank and doesn’t require an account. Everything stays on your device.'],
   },
   {
     q: 'Is my data private?',
@@ -55,7 +55,7 @@ const QA = [
   },
   {
     q: 'What are AI features, and do I have to use them?',
-    a: ['Spendful has two optional AI features: receipt scanning and spending insights. Both require an internet connection and send limited data to an AI provider to complete the task. The app works fully without them — they\'re there if you want them, not required.'],
+    a: ['Spendful has two optional AI features: receipt scanning and spending insights. Both require an internet connection and send limited data to an AI provider to complete the task. The app works fully without them — they’re there if you want them, not required.'],
   },
   {
     q: 'Does receipt scanning save my photos?',
@@ -70,11 +70,11 @@ const QA = [
     a: ['Spendful is available on iPhone (iOS) and Android. You can find it on the App Store and Google Play.'],
   },
   {
-    q: 'What is a \u201Cspending intention\u201D?',
-    a: ['It\'s a gentle reference point for your month — not a strict limit.', 'It helps you understand your pace, without pressure.'],
+    q: 'What is a “spending intention”?',
+    a: ['It’s a gentle reference point for your month — not a strict limit.', 'It helps you understand your pace, without pressure.'],
   },
   {
-    q: 'Something isn\'t working. How do I get help?',
+    q: 'Something isn’t working. How do I get help?',
     a: ['Email us at <a href="mailto:buihdk@gmail.com">buihdk@gmail.com</a>. We typically respond within 1\u20132 business days.'],
   },
 ]
@@ -84,90 +84,76 @@ const QA = [
   <section class="min-h-screen pt-24 pb-16 sm:pt-32">
     <div class="container typo text-on-surface-variant typo-headings:text-primary typo-headings:font-serif typo-headings:italic typo-strong:text-on-surface-variant typo-a:text-primary typo-blockquote:text-primary">
       <h1 class="text-center">{title}</h1>
-      {QA.map(({ q, a }) => (
-        <div>
-          <h2 class="qa-q">{q}</h2>
-          <div class="qa-a">
-            <div>
-              {a.map(para => <p set:html={para} />)}
-            </div>
-          </div>
-        </div>
-      ))}
+      <div class="space-y-7">
+        {QA.map(({ q, a }) => (
+          <details name="faq">
+            <summary>{q}</summary>
+            <ul>{a.map(para => <li set:html={para} />)}</ul>
+          </details>
+        ))}
+      </div>
     </div>
   </section>
 </Layout>
 
 <style>
-  .qa-q {
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    gap: 1rem;
-    margin-bottom: 0 !important;
-    font-size: 1.125rem !important;
-  }
+details {
+  interpolate-size: allow-keywords;
 
-  .qa-q::after {
-    content: '+';
-    font-style: normal;
-    font-size: 1.25rem;
-    font-weight: 300;
-    font-family: var(--font-sans);
-    color: var(--color-primary);
-    opacity: 0.5;
-    flex-shrink: 0;
-    transition: opacity 200ms ease;
-  }
-
-  .qa-q[aria-expanded="true"]::after {
-    content: '\2212'; /* − */
-    opacity: 0.8;
-  }
-
-  .qa-a {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 250ms ease;
-  }
-
-  .qa-a.open {
-    grid-template-rows: 1fr;
-  }
-
-  .qa-a > div {
+  &::details-content {
+    height: 0;
     overflow: hidden;
+    transition:
+      height 250ms,
+      content-visibility 250ms allow-discrete;
   }
-</style>
 
-<script>
-  const headings = document.querySelectorAll<HTMLElement>('.qa-q')
-  let openAnswer: Element | null = null
-  let openHeading: Element | null = null
-
-  headings.forEach(h2 => {
-    const answer = h2.nextElementSibling as HTMLElement
-    h2.setAttribute('aria-expanded', 'false')
-
-    function toggle() {
-      const isOpen = answer.classList.contains('open')
-
-      if (openAnswer && openAnswer !== answer) {
-        openAnswer.classList.remove('open')
-        openHeading?.setAttribute('aria-expanded', 'false')
-      }
-
-      answer.classList.toggle('open', !isOpen)
-      h2.setAttribute('aria-expanded', String(!isOpen))
-      openAnswer  = !isOpen ? answer  : null
-      openHeading = !isOpen ? h2     : null
+  &[open] {
+    &::details-content {
+      height: auto;
     }
 
-    h2.addEventListener('click', toggle)
-    h2.addEventListener('keydown', (e: KeyboardEvent) => {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle() }
-    })
-  })
-</script>
+    summary {
+      &::after {
+        content: '\2212';
+        opacity: 0.8;
+      }
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      padding-left: 0;
+    }
+  }
+}
+
+summary {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  font-weight: 700;
+  font-style: italic;
+  font-size: 1.125rem;
+
+  &::after {
+    content: '+';
+    opacity: 0.5;
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 300;
+    font-style: normal;
+    transition: opacity 200ms ease;
+  }
+}
+</style>
