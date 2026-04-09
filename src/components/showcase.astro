@@ -6,22 +6,22 @@ import screenInsight from '@/assets/screen-insight.png'
 import screenJournal from '@/assets/screen-journal.png'
 
 const IMAGES = [
-  screenInsight,
-  screenCapture,
-  screenJournal
+  { src: screenInsight, alt: 'AI spending insights screen' },
+  { src: screenCapture, alt: 'Receipt scanning screen' },
+  { src: screenJournal, alt: 'Daily journal screen' },
 ]
 ---
 
 <section class="py-16 md:py-24 bg-surface-container-low overflow-hidden">
   <div class="container">
     <div class="flex flex-wrap justify-center gap-12">
-      {IMAGES.map((src, i) => (
+      {IMAGES.map(({ alt, src }, i) => (
         <div class:list={['w-64 aspect-[9/19] bg-surface-container-lowest rounded-4xl shadow-2xl p-1.5 hover:scale-105 transition-transform duration-500', i === 0 ? '-rotate-6' : i === 2 ? 'rotate-6' : 'scale-110 z-10']}>
           <Image
             src={src}
             width={1320}
             height={2868}
-            alt={['AI spending insights screen', 'Receipt scanning screen', 'Daily journal screen'][i]}
+            alt={alt}
             widths={[300, 450, 600]}
             class="w-full h-full object-cover rounded-[1.75rem]"
           />
