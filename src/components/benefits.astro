@@ -1,19 +1,19 @@
 ---
-import { Leaf, ShieldCheck, Repeat } from '@lucide/astro'
+import { Leaf, ShieldCheck, Feather } from '@lucide/astro'
 
 const BENEFITS = [
-  { icon: Leaf, title: 'Low Friction', desc: 'Designed to be used for less than 60 seconds a day.' },
-  { icon: ShieldCheck, title: 'Privacy First', desc: 'Your data is yours. We never sell your personal narrative.' },
-  { icon: Repeat, title: 'Sustainable Habit', desc: 'Built on behavioral science to ensure long-term usage.' },
+  { icon: Leaf, title: 'Low Friction', desc: 'Designed to be used in under 60 seconds a day.' },
+  { icon: ShieldCheck, title: 'Privacy First', desc: 'All data stays on your device. No account, no cloud, no third-party access. Export your history as CSV or JSON anytime.' },
+  { icon: Feather, title: 'No pressure mechanics', desc: 'No streaks, no badges, no comparisons. One gentle daily check-in is all it takes.' },
 ]
 ---
 
-<section class="py-32" id="circle">
-  <div class="container max-w-5xl text-center space-y-16">
+<section class="py-16 md:py-24 lg:py-32 scroll-mt-20" id="benefits">
+  <div class="container max-w-5xl text-center space-y-10 md:space-y-16">
     <div class="space-y-6">
       <h2 class="font-serif text-5xl font-extrabold tracking-tight text-on-surface">Mindfulness over budgeting.</h2>
       <p class="text-xl text-on-surface-variant max-w-2xl mx-auto leading-relaxed">
-        Traditional apps focus on restrictions. Spendful focuses on awareness. When you are aware of where your energy goes, balance occurs naturally.
+        Most apps focus on limits. Spendful focuses on awareness. When you see where your money goes, better decisions follow naturally.
       </p>
     </div>
 
@@ -31,7 +31,7 @@ const BENEFITS = [
             <Icon class="w-8 h-8 text-primary" />
           </div>
           <h3 class="font-serif text-xl font-bold">{title}</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed">{desc}</p>
+          <p class="text-on-surface-variant text-md leading-relaxed">{desc}</p>
         </div>
       ))}
     </div>

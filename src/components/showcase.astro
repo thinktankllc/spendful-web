@@ -12,7 +12,7 @@ const IMAGES = [
 ]
 ---
 
-<section class="py-24 bg-surface-container-low overflow-hidden">
+<section class="py-16 md:py-24 bg-surface-container-low overflow-hidden">
   <div class="container">
     <div class="flex flex-wrap justify-center gap-12">
       {IMAGES.map((src, i) => (
@@ -21,7 +21,7 @@ const IMAGES = [
             src={src}
             width={1320}
             height={2868}
-            alt={`App screen ${i + 1}`}
+            alt={['AI spending insights screen', 'Receipt scanning screen', 'Daily journal screen'][i]}
             widths={[300, 450, 600]}
             class="w-full h-full object-cover rounded-[1.75rem]"
           />

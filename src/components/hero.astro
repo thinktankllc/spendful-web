@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets'
-import { Sparkles } from '@lucide/astro'
+import { Sparkles, ShieldCheck, Lock, Download } from '@lucide/astro'
 
 import screenMonth from '@/assets/screen-month.png'
 import screenMonthDark from '@/assets/screen-month-dark.png'
 ---
 
-<section class="pt-40 pb-24 overflow-hidden" id="essence">
+<section class="pt-28 md:pt-40 pb-16 md:pb-24 overflow-hidden">
   <div class="container grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
     <!--motion-->
 <!--
@@ -15,24 +15,37 @@ import screenMonthDark from '@/assets/screen-month-dark.png'
     viewport={{ once: true }}
     transition={{ duration: 0.8 }}
 -->
-    <div
-      class="space-y-10"
-    >
+    <div class="space-y-10 max-lg:text-center">
       <div class="inline-flex items-center gap-3 bg-primary/10 px-4 py-2 rounded-full">
         <Sparkles class="w-4 h-4 text-primary" />
         <span class="text-xs font-semibold uppercase tracking-widest text-primary">Spendful — Mindful Spending</span>
       </div>
 
       <h1 class="font-serif text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] text-on-surface">
-        Simple daily <br />
-        <span class="text-primary italic">spend awareness.</span>
+        Know where your <br />
+        <span class="text-primary italic">money goes.</span>
       </h1>
 
-      <p class="text-xl text-on-surface-variant max-w-lg leading-relaxed font-light">
-        Transform your relationship with money through intentional tracking. We don’t just count cents; we cultivate presence.
+      <p class="text-xl text-on-surface-variant max-w-lg leading-relaxed font-light max-lg:mx-auto">
+        One simple daily check-in. No budgets, no bank links, just a clearer sense of your spending.
       </p>
 
-      <div class="flex items-center gap-4 pt-4 max-sm:justify-between sm:gap-6">
+      <div class="flex flex-col gap-3 max-lg:items-center">
+        <span class="flex items-center gap-2 text-md text-on-surface-variant">
+          <Download class="w-4 h-4 text-primary shrink-0" />
+          Free to download
+        </span>
+        <span class="flex items-center gap-2 text-md text-on-surface-variant">
+          <ShieldCheck class="w-4 h-4 text-primary shrink-0" />
+          No account needed
+        </span>
+        <span class="flex items-center gap-2 text-md text-on-surface-variant">
+          <Lock class="w-4 h-4 text-primary shrink-0" />
+          Data stays on your device
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4 pt-4 max-sm:justify-between sm:justify-center lg:justify-start sm:gap-6">
         <a href="https://apps.apple.com/app/id6757114071" target="_blank" rel="noopener noreferrer">
           <img
             src="/app-store.svg"
