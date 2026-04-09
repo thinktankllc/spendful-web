@@ -1,5 +1,5 @@
 ---
-import Layout from '@/layouts/main.astro'
+import Layout from '@/layouts/content.astro'
 
 const title = 'Questions, answered simply.'
 const description = 'Common questions about Spendful — how it works, what data it stores, and what to expect from the app.'
@@ -80,20 +80,15 @@ const QA = [
 ]
 ---
 
-<Layout title={title} description={description} minimal>
-  <section class="min-h-screen pt-32 pb-24 sm:pt-40">
-    <div class="container typo text-on-surface-variant typo-headings:text-primary typo-headings:font-serif typo-headings:italic typo-strong:text-on-surface-variant typo-a:text-primary typo-blockquote:text-primary">
-      <h1 class="mb-16 text-center">{title}</h1>
-      <div class="space-y-7">
-        {QA.map(({ q, a }) => (
-          <details name="faq">
-            <summary>{q}</summary>
-            <ul>{a.map(para => <li set:html={para} />)}</ul>
-          </details>
-        ))}
-      </div>
-    </div>
-  </section>
+<Layout title={title} description={description}>
+  <div class="space-y-7">
+    {QA.map(({ q, a }) => (
+      <details name="faq">
+        <summary>{q}</summary>
+        <ul>{a.map(para => <li set:html={para} />)}</ul>
+      </details>
+    ))}
+  </div>
 </Layout>
 
 <style>
