@@ -3,7 +3,7 @@ import { Menu, Moon, Sun, X } from '@lucide/astro'
 
 const { minimal } = Astro.props
 
-const SECTIONS = ['Features', 'Benefits']
+const SECTIONS = ['Features', 'Benefits', 'Testimonials']
 ---
 
 <header class="fixed top-0 z-50 border-b border-b-transparent w-full py-6 transition-all duration-300">
@@ -13,7 +13,7 @@ const SECTIONS = ['Features', 'Benefits']
     </a>
 
     {!minimal && (
-      <nav class="hidden md:flex items-center gap-30 text-lg font-medium">
+      <nav class="hidden md:flex items-center gap-6 lg:gap-16 text-lg font-medium">
         {SECTIONS.map((item) => (
           <a href={`#${item.toLowerCase()}`} class="text-on-surface-variant hover:text-primary transition-colors">
             {item}
