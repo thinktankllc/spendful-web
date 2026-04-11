@@ -1,10 +1,10 @@
 ---
 layout: ../layouts/content.astro
 title: Privacy Policy
-description: Spendful keeps your spending data on your device. No analytics, no tracking, no ads. Learn exactly what data is stored and what stays private.
+description: Spendful keeps your spending data on your device. Learn exactly what data is stored and what stays private.
 ---
 
-**Last updated**: March 2026
+**Last updated**: April 2026
 
 Spendful is “a calm, local-first spend awareness app designed to help you gently notice your spending.” The vast majority of your data never leaves your device. This policy explains what data is stored, what optional features may transmit data externally, and how that information is handled.
 
@@ -72,18 +72,15 @@ Any data collected during the purchase process is governed by Apple’s or Googl
 
 If you enable daily reminders, Spendful schedules local notifications on your device. Notification schedules remain entirely on your device and are not transmitted externally.
 
-## Analytics and Tracking
+## Analytics, Advertising Measurement, and Tracking
 
-Spendful contains no analytics, advertising, crash reporting, or third-party tracking.
+Spendful uses the TikTok Business SDK to measure app installs, app launches, and subscription purchase events for advertising attribution, campaign performance, and ad optimization.
 
-This means:
+Data shared with TikTok may include app event information such as install, launch, and purchase events; app version; TikTok App ID; product identifier; purchase value and currency; device or app information; network information such as IP address and user agent; and device advertising identifiers where permitted by iOS settings and user consent.
 
-- No telemetry
-- No behavioral tracking
-- No advertising identifiers
-- No user profiling
+Spendful does not send receipt images, spending entries, journal notes, feedback text, names, email addresses, or other user-generated content to TikTok.
 
-Your activity inside the app is not monitored or transmitted.
+TikTok’s handling of this data is governed by TikTok’s applicable business products, data, and privacy terms.
 
 ## Summary of External Data Flows
 |Feature|Data sent externally|Recipient|Optional?|
@@ -93,6 +90,16 @@ Your activity inside the app is not monitored or transmitted.
 |Currency Conversion|Currency code (e.g. “USD”)|open.er-api.com|Yes|
 |In-App Purchases|Purchase transaction|Apple / Google|Yes (premium features)|
 |All other features|Nothing — stored locally|—|N/A|
+|Feedback|Feedback text, optional name, optional email, app version, platform, OS version, language, theme, timestamp|Spendful feedback endpoint|Yes|
+|TikTok ads measurement|Install, launch, and purchase events; app version; product ID; purchase value and currency; device/app/network attribution signals; advertising identifier where permitted|TikTok Business|No|
+
+## Feedback (Optional)
+
+If you choose to send feedback from inside the app, Spendful may collect the feedback text you submit, along with optional name and email address if you provide them.
+
+The feedback submission may also include basic app context such as app version, platform, operating system version, language, theme setting, and timestamp. This information is used only to respond to feedback, troubleshoot issues, and improve Spendful.
+
+Feedback information is not used for advertising or tracking.
 
 ## Children’s Privacy
 
