@@ -92,6 +92,12 @@ const QA = [
 </Layout>
 
 <style>
+:global(h1) {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-style: normal;
+}
+
 details {
   interpolate-size: allow-keywords;
 
@@ -136,9 +142,9 @@ summary {
   align-items: center;
   gap: 1rem;
   color: var(--color-primary);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-style: normal;
   font-size: 1.125rem;
 
   &:focus {
