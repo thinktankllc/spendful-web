@@ -6,9 +6,9 @@ const { minimal } = Astro.props
 const SECTIONS = ['Features', 'Benefits', 'Testimonials']
 ---
 
-<header class="fixed top-0 z-50 border-b border-b-transparent w-full py-6 transition-all duration-300">
+<header class="fixed top-0 z-50 border-b border-b-transparent w-full py-2 transition-all duration-300 md:py-6">
   <div class:list={['container flex items-center', minimal ? 'justify-center' : 'justify-between']}>
-    <a href={minimal ? '/' : '#'} class="font-serif italic text-2xl font-extrabold tracking-tighter text-primary">
+    <a href={minimal ? '/' : '#'} class="font-serif italic text-xl font-extrabold tracking-tighter text-primary md:text-2xl">
       Spendful
     </a>
 
@@ -29,10 +29,10 @@ const SECTIONS = ['Features', 'Benefits', 'Testimonials']
           <Moon class="icon-moon size-6" />
           <Sun class="icon-sun size-6" />
         </button>
-        <a href="#download" class="hidden sm:block bg-primary bg-linear-to-b from-white/40 to-transparent dark:to-black/20 hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10 focus-visible:outline-primary">
+        <a href="#download" class="hidden md:block bg-primary bg-linear-to-b from-white/40 to-transparent dark:to-black/20 hover:bg-primary-container dark:hover:bg-primary/80 text-on-primary px-8 py-3 rounded-full text-sm font-medium transition-all shadow-xl shadow-primary/10 focus-visible:outline-primary">
           Begin Journey
         </a>
-        <button onclick="toggleMobileMenu()" aria-label="Toggle menu" class="toggle-menu md:hidden text-on-surface">
+        <button onclick="toggleMobileMenu()" aria-label="Toggle menu" class="toggle-menu -mx-3 p-3 md:hidden text-on-surface">
           <X class="icon-x" />
           <Menu class="icon-menu" />
         </button>
@@ -107,7 +107,7 @@ themeToggle?.addEventListener('click', function () {
   localStorage.setItem('theme', isDark ? 'dark' : 'light')
 })
 
-window.addEventListener('scroll', function () {
+function calculateScroll() {
   const isScrolled = window.scrollY > 20
 
   if (isScrolled) {
@@ -115,7 +115,11 @@ window.addEventListener('scroll', function () {
   } else {
     header.classList.remove('glass')
   }
-})
+}
+
+calculateScroll()
+
+window.addEventListener('scroll', calculateScroll)
 
 menuToggle?.addEventListener('click', function () {
   header.classList.toggle('open')
