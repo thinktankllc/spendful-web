@@ -11,12 +11,12 @@ const LINKS = [
     <a href="/" class="font-serif italic text-xl font-bold tracking-tighter text-primary">
       Spendful
     </a>
-    <div class="flex flex-wrap justify-center gap-8 text-xs uppercase tracking-widest text-on-surface-variant">
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs uppercase tracking-widest text-on-surface-variant">
       {LINKS.map((link) => (
         <a href={link.href} class="hover:text-primary transition-colors">{link.label}</a>
       ))}
     </div>
-    <p class="text-xs uppercase tracking-widest text-on-surface-variant/60 text-center lg:text-right">
+    <p class="text-xs/relaxed uppercase tracking-widest text-on-surface-variant/60 text-center lg:text-right">
       © 2026 Spendful | Sanctuary for Financial Awareness
     </p>
   </div>
