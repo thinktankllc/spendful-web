@@ -44,22 +44,22 @@
 
   html {
     @apply antialiased scroll-smooth;
+
+    &.dark {
+      --color-primary: var(--color-dark-primary);
+      --color-primary-container: var(--color-dark-primary-container);
+      --color-on-primary: var(--color-dark-on-primary);
+      --color-on-primary-container: var(--color-dark-on-primary-container);
+      --color-surface: var(--color-dark-surface);
+      --color-surface-container-low: var(--color-dark-surface-container-low);
+      --color-surface-container-lowest: var(--color-dark-surface-container-lowest);
+      --color-on-surface: var(--color-dark-on-surface);
+      --color-on-surface-variant: var(--color-dark-on-surface-variant);
+    }
   }
 
   body {
     @apply bg-surface text-on-surface transition-colors duration-500;
-  }
-
-  html.dark {
-    --color-primary: var(--color-dark-primary);
-    --color-primary-container: var(--color-dark-primary-container);
-    --color-on-primary: var(--color-dark-on-primary);
-    --color-on-primary-container: var(--color-dark-on-primary-container);
-    --color-surface: var(--color-dark-surface);
-    --color-surface-container-low: var(--color-dark-surface-container-low);
-    --color-surface-container-lowest: var(--color-dark-surface-container-lowest);
-    --color-on-surface: var(--color-dark-on-surface);
-    --color-on-surface-variant: var(--color-dark-on-surface-variant);
   }
 }
 
