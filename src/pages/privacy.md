@@ -10,7 +10,7 @@ Spendful is “a calm, local-first spend awareness app designed to help you gent
 
 Spendful does not require an account or sign-in to use the app.
 
-## Data Stored on Your Device
+## 1. Data Stored on Your Device
 
 All core app data is stored locally using your device’s secure storage and is never sent to Spendful’s servers. This includes:
 
@@ -27,7 +27,7 @@ You can export all of your data at any time from within the app. Exported files 
 
 If you uninstall the app, all locally stored data is removed from your device.
 
-## AI Features (Optional)
+## 2. AI Features (Optional)
 Spendful offers optional AI-powered features that require an internet connection. These features send limited data to a third-party AI provider to perform the requested task. The app functions fully without these features.
 
 AI requests are sent directly from your device. Spendful does not operate servers that store AI requests or responses.
@@ -56,11 +56,11 @@ Previous insights may be included to reduce repetition. No identifying informati
 
 > **What OpenAI receives**: Receipt images and anonymised spending summaries. Requests are sent directly from your device using an API key. OpenAI’s handling of this data is governed by [OpenAI’s Privacy Policy](https://openai.com/policies/privacy-policy). By default, OpenAI does not use API data to train models.
 
-## Currency Conversion (Optional)
+## 3. Currency Conversion (Optional)
 
 If you change your default currency and choose to convert existing entries, Spendful retrieves exchange rates from the Exchange Rate API ([open.er-api.com](https://open.er-api.com)). Only the currency code (for example “USD”) is transmitted. No personal or financial data is included.
 
-## In-App Purchases
+## 4. In-App Purchases
 
 Subscriptions and purchases are processed entirely by Apple (App Store) or Google (Google Play). Spendful does not receive or store payment details.
 
@@ -68,11 +68,11 @@ Purchase validation is handled on-device using information returned by the platf
 
 Any data collected during the purchase process is governed by Apple’s or Google’s respective privacy policies.
 
-## Push Notifications
+## 5. Push Notifications
 
 If you enable daily reminders, Spendful schedules local notifications on your device. Notification schedules remain entirely on your device and are not transmitted externally.
 
-## Analytics and Tracking
+## 6. Analytics and Tracking
 
 Spendful contains no analytics, advertising, crash reporting, or third-party tracking.
 
@@ -85,7 +85,7 @@ This means:
 
 Your activity inside the app is not monitored or transmitted.
 
-## Summary of External Data Flows
+## 7. Summary of External Data Flows
 |Feature|Data sent externally|Recipient|Optional?|
 |-|-|-|-|
 |Receipt Scanning |Receipt image (processed)|OpenAI API|Yes|
@@ -94,15 +94,15 @@ Your activity inside the app is not monitored or transmitted.
 |In-App Purchases|Purchase transaction|Apple / Google|Yes (premium features)|
 |All other features|Nothing — stored locally|—|N/A|
 
-## Children’s Privacy
+## 8. Children’s Privacy
 
 Spendful is not directed at children under the age of 13. We do not knowingly collect personal information from children.
 
-## Changes to This Policy
+## 9. Changes to This Policy
 
 If we make material changes to this policy, we will update the “Last updated” date at the top of this document. Continued use of the app after changes constitutes acceptance of the revised policy.
 
-## Contact
+## 10. Contact
 
 If you have questions about this privacy policy, please contact:
 

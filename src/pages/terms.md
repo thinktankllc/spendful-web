@@ -10,7 +10,7 @@ Please read these Terms of Use carefully before using Spendful. By downloading, 
 
 ## 1. The App
 
-Spendful ("the App") is a personal spend-tracking application developed and operated by Khoa Bui ("we", "us", or "our"). The App is available on the Apple App Store and Google Play Store.
+Spendful (“the App”) is a personal spend-tracking application developed and operated by Khoa Bui (“we”, “us”, or “our”). The App is available on the Apple App Store and Google Play Store.
 
 ## 2. License Grant
 
@@ -48,15 +48,15 @@ Spendful offers optional premium features available through in-app purchase:
 
 Any spending entries, notes, categories, and journal entries you create in the App are yours. We do not claim ownership over your content. All data is stored locally on your device and is not transmitted to our servers.
 
-See our [Privacy Policy](/privacy/) for full details on what data, if any, leaves your device.
+See our [Privacy Policy](/privacy) for full details on what data, if any, leaves your device.
 
 ## 6. Optional AI Features
 
-Spendful includes optional AI-powered features (receipt scanning and spending insights) that require an internet connection and send limited data to a third-party AI provider. Use of these features is voluntary. The App functions fully without them. See the [Privacy Policy](/privacy/) for details.
+Spendful includes optional AI-powered features (receipt scanning and spending insights) that require an internet connection and send limited data to a third-party AI provider. Use of these features is voluntary. The App functions fully without them. See the [Privacy Policy](/privacy) for details.
 
 ## 7. Disclaimer of Warranties
 
-The App is provided "as is" and "as available" without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
+The App is provided “as is” and “as available” without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
 
 We do not warrant that:
 
@@ -82,7 +82,7 @@ We reserve the right to modify, suspend, or discontinue the App or any part of i
 
 ## 11. Changes to These Terms
 
-We may update these Terms from time to time. When we do, we will update the "Last updated" date at the top of this page. Your continued use of the App after changes are posted constitutes your acceptance of the revised terms.
+We may update these Terms from time to time. When we do, we will update the “Last updated” date at the top of this page. Your continued use of the App after changes are posted constitutes your acceptance of the revised terms.
 
 ## 12. Governing Law
 
