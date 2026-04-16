@@ -1,0 +1,401 @@
+---
+const posthogKey = import.meta.env.PUBLIC_POSTHOG_KEY
+const posthogHost = import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com'
+---
+
+{posthogKey && (
+  <>
+    <script is:inline define:vars={{ posthogKey, posthogHost }}>
+      (function () {
+        var isLocal = ['localhost', '127.0.0.1'].includes(window.location.hostname)
+        var scrollDepths = [25, 50, 75, 90, 100]
+        var trackedDepths = new Set()
+        var trackedSections = new Set()
+        var campaignParams = [
+          'utm_source',
+          'utm_medium',
+          'utm_campaign',
+          'utm_term',
+          'utm_content',
+          'gclid',
+          'gbraid',
+          'wbraid',
+          'fbclid',
+          'msclkid',
+          'ttclid',
+        ]
+
+        function deviceCategory() {
+          var width = window.innerWidth
+          if (width < 768) return 'phone'
+          if (width < 1024) return 'tablet'
+          return 'laptop_desktop'
+        }
+
+        function commonProperties() {
+          var connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+
+          return {
+            device_category: deviceCategory(),
+            referrer: document.referrer || null,
+            page_title: document.title,
+            landing_path: window.location.pathname,
+            current_url: window.location.href,
+            path: window.location.pathname,
+            search: window.location.search || null,
+            viewport_width: window.innerWidth,
+            viewport_height: window.innerHeight,
+            screen_width: window.screen.width,
+            screen_height: window.screen.height,
+            screen_color_depth: window.screen.colorDepth,
+            touch_capable: navigator.maxTouchPoints > 0,
+            coarse_pointer: window.matchMedia('(pointer: coarse)').matches,
+            prefers_dark_mode: window.matchMedia('(prefers-color-scheme: dark)').matches,
+            prefers_reduced_motion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+            language: navigator.language,
+            languages: navigator.languages ? navigator.languages.join(',') : null,
+            platform: navigator.platform,
+            cookies_enabled: navigator.cookieEnabled,
+            do_not_track: navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack || null,
+            hardware_concurrency: navigator.hardwareConcurrency || null,
+            device_memory: navigator.deviceMemory || null,
+            network_effective_type: connection?.effectiveType || null,
+            network_downlink: connection?.downlink || null,
+            network_rtt: connection?.rtt || null,
+            online: navigator.onLine,
+          }
+        }
+
+        function campaignProperties() {
+          var params = new URLSearchParams(window.location.search)
+          var properties = {}
+
+          campaignParams.forEach(function (param) {
+            if (params.has(param)) properties[param] = params.get(param)
+          })
+
+          return properties
+        }
+
+        function capture(eventName, properties) {
+          if (!window.posthog || typeof window.posthog.capture !== 'function') return
+          window.posthog.capture(eventName, Object.assign(commonProperties(), properties || {}))
+        }
+
+        function loadPostHog() {
+          if (isLocal || window.posthog) return
+
+          !(function (t, e) {
+            var o, n, p, r
+            e.__SV || (
+              window.posthog = e,
+              e._i = [],
+              e.init = function (i, s, a) {
+                function g(t, e) {
+                  var o = e.split('.')
+                  if (o.length === 2) {
+                    t = t[o[0]]
+                    e = o[1]
+                  }
+                  t[e] = function () {
+                    t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                  }
+                }
+                p = t.createElement('script')
+                p.type = 'text/javascript'
+                p.crossOrigin = 'anonymous'
+                p.async = true
+                p.src = s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js'
+                r = t.getElementsByTagName('script')[0]
+                r.parentNode.insertBefore(p, r)
+                var u = e
+                if (a !== undefined) {
+                  u = e[a] = []
+                } else {
+                  a = 'posthog'
+                }
+                u.people = u.people || []
+                u.toString = function (t) {
+                  var e = 'posthog'
+                  if (a !== 'posthog') e += '.' + a
+                  if (!t) e += ' (stub)'
+                  return e
+                }
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)'
+                }
+                o = 'init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug'.split(' ')
+                for (n = 0; n < o.length; n++) g(u, o[n])
+                e._i.push([i, s, a])
+              },
+              e.__SV = 1
+            )
+          })(document, window.posthog || [])
+
+          window.posthog.init(posthogKey, {
+            api_host: posthogHost,
+            defaults: '2026-01-30',
+            autocapture: true,
+            rageclick: true,
+            capture_pageview: true,
+            capture_pageleave: true,
+            capture_dead_clicks: true,
+            disable_session_recording: false,
+            enable_recording_console_log: true,
+            enable_heatmaps: true,
+            persistence: 'localStorage+cookie',
+            person_profiles: 'always',
+            custom_campaign_params: campaignParams,
+            logs: {
+              captureConsoleLogs: true,
+              serviceName: 'spendful-web',
+            },
+            session_recording: {
+              maskAllInputs: true,
+              maskTextSelector: '[data-ph-mask]',
+            },
+            loaded: function (posthog) {
+              posthog.register(Object.assign(commonProperties(), campaignProperties()))
+              posthog.register_once({
+                first_referrer: document.referrer || null,
+                first_landing_url: window.location.href,
+                first_landing_path: window.location.pathname,
+              })
+              if (typeof posthog.setPersonProperties === 'function') {
+                posthog.setPersonProperties(commonProperties())
+              }
+              capture('marketing_site_loaded')
+              if (typeof posthog.startSessionRecording === 'function') posthog.startSessionRecording()
+            },
+          })
+        }
+
+        function bindLifecycleTracking() {
+          var resizeTimer = null
+
+          document.addEventListener('visibilitychange', function () {
+            capture('page_visibility_changed', {
+              visibility_state: document.visibilityState,
+              hidden: document.hidden,
+            })
+          })
+
+          window.addEventListener('online', function () {
+            capture('network_status_changed', { online: true })
+          })
+
+          window.addEventListener('offline', function () {
+            capture('network_status_changed', { online: false })
+          })
+
+          window.addEventListener('resize', function () {
+            clearTimeout(resizeTimer)
+            resizeTimer = setTimeout(function () {
+              capture('viewport_resized', {
+                viewport_width: window.innerWidth,
+                viewport_height: window.innerHeight,
+                device_category: deviceCategory(),
+              })
+            }, 500)
+          }, { passive: true })
+        }
+
+        function bindErrorTracking() {
+          window.addEventListener('error', function (event) {
+            var error = event.error || new Error(event.message || 'Window error')
+
+            if (window.posthog && typeof window.posthog.captureException === 'function') {
+              window.posthog.captureException(error, {
+                source: 'window_error',
+                filename: event.filename || null,
+                lineno: event.lineno || null,
+                colno: event.colno || null,
+              })
+            }
+
+            capture('browser_error', {
+              message: event.message || null,
+              filename: event.filename || null,
+              lineno: event.lineno || null,
+              colno: event.colno || null,
+            })
+          })
+
+          window.addEventListener('unhandledrejection', function (event) {
+            var reason = event.reason
+            var error = reason instanceof Error ? reason : new Error(String(reason || 'Unhandled promise rejection'))
+
+            if (window.posthog && typeof window.posthog.captureException === 'function') {
+              window.posthog.captureException(error, { source: 'unhandledrejection' })
+            }
+
+            capture('unhandled_promise_rejection', {
+              message: error.message,
+              name: error.name,
+            })
+          })
+        }
+
+        function bindPerformanceTracking() {
+          function captureNavigationTiming() {
+            var nav = performance.getEntriesByType('navigation')[0]
+            if (!nav) return
+
+            capture('page_performance', {
+              dns_ms: Math.round(nav.domainLookupEnd - nav.domainLookupStart),
+              tcp_ms: Math.round(nav.connectEnd - nav.connectStart),
+              request_ms: Math.round(nav.responseStart - nav.requestStart),
+              response_ms: Math.round(nav.responseEnd - nav.responseStart),
+              dom_interactive_ms: Math.round(nav.domInteractive),
+              dom_complete_ms: Math.round(nav.domComplete),
+              load_event_ms: Math.round(nav.loadEventEnd),
+              transfer_size: nav.transferSize || null,
+              encoded_body_size: nav.encodedBodySize || null,
+              decoded_body_size: nav.decodedBodySize || null,
+              type: nav.type,
+            })
+          }
+
+          function observePerformanceEntry(type, callback) {
+            if (!('PerformanceObserver' in window)) return
+            if (!PerformanceObserver.supportedEntryTypes?.includes(type)) return
+
+            try {
+              var observer = new PerformanceObserver(function (list) {
+                list.getEntries().forEach(callback)
+              })
+              observer.observe({ type: type, buffered: true })
+            } catch (_) {}
+          }
+
+          window.addEventListener('load', function () {
+            setTimeout(captureNavigationTiming, 0)
+          }, { once: true })
+
+          observePerformanceEntry('paint', function (entry) {
+            capture('web_vital_measured', {
+              metric: entry.name,
+              value: Math.round(entry.startTime),
+            })
+          })
+
+          observePerformanceEntry('largest-contentful-paint', function (entry) {
+            capture('web_vital_measured', {
+              metric: 'largest-contentful-paint',
+              value: Math.round(entry.startTime),
+              element: entry.element?.tagName || null,
+              url: entry.url || null,
+            })
+          })
+
+          var cumulativeLayoutShift = 0
+          observePerformanceEntry('layout-shift', function (entry) {
+            if (entry.hadRecentInput) return
+            cumulativeLayoutShift += entry.value
+            capture('web_vital_measured', {
+              metric: 'cumulative-layout-shift',
+              value: Number(cumulativeLayoutShift.toFixed(4)),
+            })
+          })
+
+          observePerformanceEntry('event', function (entry) {
+            if (!entry.interactionId) return
+            capture('web_vital_measured', {
+              metric: 'interaction-to-next-paint',
+              value: Math.round(entry.duration),
+              event_type: entry.name,
+            })
+          })
+        }
+
+        function bindClickTracking() {
+          document.addEventListener('click', function (event) {
+            var link = event.target.closest && event.target.closest('a')
+            if (!link) return
+
+            var href = link.getAttribute('href') || ''
+            var label = (link.dataset.analyticsLabel || link.textContent || '').trim()
+            var placement = link.dataset.analyticsPlacement || link.closest('section')?.id || 'unknown'
+
+            if (link.dataset.analytics === 'cta' || href === '#download') {
+              capture('cta_click', { label: label, placement: placement, href: href })
+              return
+            }
+
+            if (link.dataset.analytics === 'store_badge' || href.includes('apps.apple.com') || href.includes('play.google.com')) {
+              capture('store_badge_click', {
+                store: href.includes('apps.apple.com') ? 'app_store' : 'google_play',
+                label: label,
+                placement: placement,
+                href: href,
+              })
+              return
+            }
+
+            if (href.startsWith('#')) {
+              capture('section_nav_click', { label: label, target: href, placement: placement })
+              return
+            }
+
+            if (link.hostname && link.hostname !== window.location.hostname) {
+              capture('external_link_click', { label: label, href: href, placement: placement })
+            }
+          })
+
+          document.addEventListener('toggle', function (event) {
+            if (event.target.tagName !== 'DETAILS' || !event.target.open) return
+            capture('faq_opened', {
+              question: event.target.querySelector('summary')?.textContent?.trim() || null,
+            })
+          }, true)
+        }
+
+        function bindScrollTracking() {
+          function onScroll() {
+            var scrollTop = window.scrollY
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight
+            var percent = docHeight > 0 ? Math.min(100, Math.round((scrollTop / docHeight) * 100)) : 100
+
+            scrollDepths.forEach(function (depth) {
+              if (percent >= depth && !trackedDepths.has(depth)) {
+                trackedDepths.add(depth)
+                capture('scroll_depth_reached', { depth: depth })
+              }
+            })
+          }
+
+          window.addEventListener('scroll', onScroll, { passive: true })
+          onScroll()
+        }
+
+        function bindSectionTracking() {
+          if (!('IntersectionObserver' in window)) return
+
+          var sections = document.querySelectorAll('section[id]')
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              var id = entry.target.id
+              if (entry.isIntersecting && !trackedSections.has(id)) {
+                trackedSections.add(id)
+                capture('section_viewed', { section: id })
+              }
+            })
+          }, { threshold: 0.5 })
+
+          sections.forEach(function (section) {
+            observer.observe(section)
+          })
+        }
+
+        bindClickTracking()
+        loadPostHog()
+        bindLifecycleTracking()
+        bindErrorTracking()
+        bindPerformanceTracking()
+        bindScrollTracking()
+        bindSectionTracking()
+      })()
+    </script>
+  </>
+)}
