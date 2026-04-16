@@ -3,11 +3,18 @@ import '@/styles/global.css'
 import Analytics from '@/components/analytics.astro'
 import Footer from '@/components/footer.astro'
 import Header from '@/components/header.astro'
+import { KEYWORDS, SITE, absoluteUrl } from '@/lib/seo'
 
-const { description, minimal, title } = Astro.props
+const { canonical, description, image, keywords, minimal, noindex, schema, title, type } = Astro.props
 
-const metaTitle = title ? `${title} — Spendful` : 'Spendful'
-const metaDescription = description || 'Spendful is a calm, local-first spending journal. Track daily expenses with intention — no budgets, no stress, just gentle awareness of where your money goes.'
+const path = Astro.url.pathname === '/' ? '/' : `${Astro.url.pathname.replace(/\/$/, '')}/`
+const metaTitle = title ? (title.includes('Spendful') ? title : `${title} - Spendful`) : 'Spendful - Privacy-First Spending Journal for iPhone and Android'
+const metaDescription = description || SITE.description
+const metaImage = absoluteUrl(image || SITE.ogImage)
+const metaUrl = canonical || absoluteUrl(path)
+const metaType = type || 'website'
+const metaKeywords = Array.from(new Set([...KEYWORDS, ...(keywords || [])])).join(', ')
+const schemaItems = schema ? (Array.isArray(schema) ? schema : [schema]) : []
 ---
 
 <html lang="en">
@@ -18,20 +25,39 @@ const metaDescription = description || 'Spendful is a calm, local-first spending
 <meta name="viewport" content="width=device-width" />
 <title>{metaTitle}</title>
 <meta name="description" content={metaDescription} />
+<meta name="keywords" content={metaKeywords} />
+<meta name="application-name" content={SITE.name} />
+<meta name="apple-itunes-app" content="app-id=6757114071" />
+<meta name="robots" content={noindex ? 'noindex,nofollow' : 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'} />
+<link rel="canonical" href={metaUrl} />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" type="image/png" sizes="512x512" />
 
-<meta property="og:url" content="https://spendful.io" />
-<meta property="og:type" content="website" />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:url" content={metaUrl} />
+<meta property="og:type" content={metaType} />
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
-<meta property="og:image" content="https://spendful.io/og.png" />
+<meta property="og:image" content={metaImage} />
+<meta property="og:image:alt" content="Spendful app preview" />
+
+<meta property="al:ios:app_name" content={SITE.name} />
+<meta property="al:ios:app_store_id" content="6757114071" />
+<meta property="al:ios:url" content={SITE.appStoreUrl} />
+<meta property="al:android:app_name" content={SITE.name} />
+<meta property="al:android:package" content="com.spendful.app" />
+<meta property="al:android:url" content={SITE.playStoreUrl} />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain" content="nhan.dev" />
-<meta property="twitter:url" content="https://spendful.io" />
+<meta property="twitter:domain" content="spendful.io" />
+<meta property="twitter:url" content={metaUrl} />
 <meta name="twitter:title" content={metaTitle} />
 <meta name="twitter:description" content={metaDescription} />
-<meta name="twitter:image" content="https://spendful.io/og.png" />
+<meta name="twitter:image" content={metaImage} />
+<meta name="twitter:image:alt" content="Spendful app preview" />
+
+{schemaItems.map((item) => (
+  <script type="application/ld+json" set:html={JSON.stringify(item).replace(/</g, '\\u003c')} />
+))}
 </head>
 <body>
 <main>

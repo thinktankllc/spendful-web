@@ -14,6 +14,14 @@ const GROUPS = [
       { label: 'Support', href: '/support' },
     ],
   },
+  {
+    heading: 'Learn',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'No Bank Links', href: '/spending-tracker-without-bank-account' },
+      { label: 'Privacy First', href: '/privacy-first-expense-tracker' },
+    ],
+  },
 ]
 ---
 
@@ -24,7 +32,7 @@ const GROUPS = [
         Spendful
       </a>
     </div>
-    <div class="row-span-2 grid grid-cols-2 gap-8">
+    <div class="row-span-2 grid grid-cols-2 gap-8 md:grid-cols-3">
       {GROUPS.map((group) => (
         <div class="flex flex-col justify-end gap-4 first:max-md:items-end">
           <p class="text-xs uppercase tracking-widest text-on-surface-variant/40">{group.heading}</p>

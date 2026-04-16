@@ -100,6 +100,38 @@ session_recording: {
 
 PostHog project settings still need to allow Session Replay and Heatmaps. The code enables them client-side, but project settings can block ingestion.
 
+## SEO and GEO
+
+The site includes a search and generative-engine visibility layer for Google, Bing, DuckDuckGo, ChatGPT, Claude, Perplexity, Gemini, Apple, Mistral, You.com, Common Crawl, social preview bots, and other compliant crawlers.
+
+Important files:
+
+- `public/robots.txt` explicitly allows major search, AI, and social-preview crawlers.
+- `public/llms.txt` gives AI agents a concise product summary and canonical Spendful facts.
+- `src/pages/sitemap.xml.ts` generates the XML sitemap.
+- `public/9d7f0a2d9c984f0aa0a7f74a5f4c7b2d.txt` hosts the IndexNow key.
+- `src/lib/seo.ts` centralizes URLs, keywords, landing page data, sitemap entries, and JSON-LD helpers.
+- `src/pages/[slug].astro` generates focused search landing pages from `src/lib/seo.ts`.
+- `src/layouts/main.astro` emits canonical URLs, Open Graph tags, Twitter/X card tags, app-link metadata, robots directives, and JSON-LD.
+
+Current SEO landing pages:
+
+- `/about/`
+- `/spending-tracker-without-bank-account/`
+- `/mindful-spending-journal/`
+- `/privacy-first-expense-tracker/`
+- `/no-budget-spending-tracker/`
+- `/receipt-scanner/`
+- `/ai-spending-insights/`
+
+After deployment, submit `https://spendful.io/sitemap.xml` in Google Search Console and Bing Webmaster Tools. For Bing and participating IndexNow engines, submit changed URLs with:
+
+```text
+Host: api.indexnow.org
+Key: 9d7f0a2d9c984f0aa0a7f74a5f4c7b2d
+Key location: https://spendful.io/9d7f0a2d9c984f0aa0a7f74a5f4c7b2d.txt
+```
+
 ## Privacy Copy
 
 Because analytics and session replay are enabled when configured, keep `src/pages/privacy.md` in sync with the actual behavior.
@@ -120,10 +152,20 @@ If the analytics behavior changes, update the privacy page in the same commit.
 ## Routes
 
 - `/` homepage
+- `/about/` app/entity facts
+- `/spending-tracker-without-bank-account/` SEO landing page
+- `/mindful-spending-journal/` SEO landing page
+- `/privacy-first-expense-tracker/` SEO landing page
+- `/no-budget-spending-tracker/` SEO landing page
+- `/receipt-scanner/` SEO landing page
+- `/ai-spending-insights/` SEO landing page
 - `/privacy/` privacy policy
 - `/terms/` terms of use
 - `/support/` support page
 - `/questions/` FAQ page
+- `/sitemap.xml` sitemap endpoint
+- `/llms.txt` AI-friendly summary
+- `/robots.txt` crawler rules
 
 ## Design Notes
 

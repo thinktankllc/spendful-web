@@ -1,0 +1,36 @@
+---
+const LINKS = [
+  { href: '/spending-tracker-without-bank-account/', label: 'Spending tracker without bank links' },
+  { href: '/mindful-spending-journal/', label: 'Mindful spending journal' },
+  { href: '/privacy-first-expense-tracker/', label: 'Privacy-first expense tracker' },
+  { href: '/no-budget-spending-tracker/', label: 'No-budget spending tracker' },
+  { href: '/receipt-scanner/', label: 'Receipt scanner' },
+  { href: '/ai-spending-insights/', label: 'AI spending insights' },
+]
+---
+
+<section class="py-16 md:py-24">
+  <div class="container grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+    <div>
+      <p class="mb-4 text-xs font-semibold uppercase tracking-widest text-primary">Spending awareness</p>
+      <h2 class="font-serif text-4xl font-extrabold tracking-tight text-on-surface md:text-6xl">
+        A private expense tracker without the bank-account baggage.
+      </h2>
+    </div>
+    <div class="space-y-6 text-lg leading-relaxed text-on-surface-variant">
+      <p>
+        Spendful is a spending journal for people who want to understand daily expenses without connecting a bank account, building a strict budget, or handing a finance app more data than it needs.
+      </p>
+      <p>
+        Use it as a mindful spending app, a simple expense tracker, a receipt scanner, or a no-budget budgeting alternative. The habit stays small: log what happened, add context when it helps, and review patterns when you are ready.
+      </p>
+      <div class="flex flex-wrap gap-3 pt-2">
+        {LINKS.map((link) => (
+          <a href={link.href} class="rounded-lg border border-on-surface/10 px-4 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/10">
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

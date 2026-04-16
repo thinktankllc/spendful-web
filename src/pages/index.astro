@@ -4,14 +4,36 @@ import Benefits from '@/components/benefits.astro'
 import CTA from '@/components/cta.astro'
 import Features from '@/components/features.astro'
 import Hero from '@/components/hero.astro'
+import SeoContent from '@/components/seo-content.astro'
 import Showcase from '@/components/showcase.astro'
 import Testimonials from '@/components/testimonials.astro'
+import {
+  KEYWORDS,
+  makeMobileApplicationSchema,
+  makeOrganizationSchema,
+  makeWebPageSchema,
+  makeWebSiteSchema,
+} from '@/lib/seo'
+
+const title = 'Privacy-First Spending Journal for iPhone and Android'
+const description = 'Spendful is a mindful spending journal and expense tracker without bank links, account setup, or budgeting pressure. Track daily expenses on iPhone and Android.'
+const schema = [
+  makeOrganizationSchema(),
+  makeWebSiteSchema(),
+  makeMobileApplicationSchema(),
+  makeWebPageSchema({
+    title,
+    description,
+    path: '/',
+  }),
+]
 ---
 
-<Layout>
+<Layout title={title} description={description} keywords={KEYWORDS} schema={schema}>
   <Hero />
   <Features />
   <Benefits />
+  <SeoContent />
   <Showcase />
   <Testimonials />
   <CTA />
