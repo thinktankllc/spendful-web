@@ -1,45 +1,50 @@
 ---
 import Layout from '@/layouts/content.astro'
+import { makeFAQSchema } from '@/lib/seo'
 
 const title = 'Questions, answered simply.'
 const description = 'Common questions about Spendful — how it works, what data it stores, and what to expect from the app.'
 
 const QA = [
   {
+    q: 'What is Spendful?',
+    a: ['Spendful is a privacy-first spending journal for iPhone and Android.', 'It helps you track daily expenses, understand spending patterns, and build awareness without connecting your bank account.'],
+  },
+  {
     q: 'Is Spendful a budgeting app?',
     a: ['No. Spendful isn’t built around budgets or limits.', 'It’s a simple way to notice your spending — one day at a time.'],
   },
   {
     q: 'How is this different from other finance apps?',
-    a: ['Most apps focus on control — budgets, tracking, and optimization.', 'Spendful focuses on awareness.', 'Instead of trying to change your behavior directly, it helps you see it more clearly.'],
+    a: ['Most apps focus on control — budgets, tracking, and optimization. Spendful focuses on awareness. Instead of trying to change your behavior directly, it helps you see it more clearly.'],
   },
   {
     q: 'Why does the app feel so simple?',
-    a: ['That’s intentional.', 'Spendful is designed to reduce friction, not add more structure. The goal is awareness, not complexity.'],
+    a: ['That’s intentional. Spendful is designed to reduce friction, not add more structure. The goal is awareness, not complexity.'],
   },
   {
     q: 'How long does it take to use each day?',
-    a: ['Usually less than a minute.', 'Just a quick check-in to log your spending — or note that you didn’t spend anything.'],
+    a: ['Usually less than a minute. Just a quick check-in to log your spending — or note that you didn’t spend anything.'],
   },
   {
     q: 'Do I need to use it every day?',
-    a: ['No.', 'But it works best as a light daily habit — something you check in with, not something you manage.'],
+    a: ['No. But it works best as a light daily habit — something you check in with, not something you manage.'],
   },
   {
     q: 'Will this actually help me spend less?',
-    a: ['It’s not about forcing change.', 'But many people find that once they become aware of their spending, their habits naturally shift.'],
+    a: ['It’s not about forcing change. But many people find that once they become aware of their spending, their habits naturally shift.'],
   },
   {
     q: 'What happens if I stop using the app?',
-    a: ['Nothing.', 'There are no streaks or penalties. You can come back anytime.'],
+    a: ['Nothing. There are no streaks or penalties. You can come back anytime.'],
   },
   {
     q: 'Do I need to connect my bank account?',
-    a: ['No.', 'Spendful doesn’t connect to your bank and doesn’t require an account. Everything stays on your device.'],
+    a: ['No. Spendful doesn’t connect to your bank and doesn’t require an account. Everything stays on your device.'],
   },
   {
     q: 'Is my data private?',
-    a: ['Yes.', 'Your data is stored locally on your device. No accounts, no tracking, no analytics.'],
+    a: ['Yes. Your data is stored locally on your device. No accounts, no tracking, no analytics.'],
   },
   {
     q: 'Can I export my data?',
@@ -47,7 +52,7 @@ const QA = [
   },
   {
     q: 'Does Spendful work without internet?',
-    a: ['Yes.', 'The app is designed to work offline. Your data stays on your device.'],
+    a: ['Yes. The app is designed to work offline. Your data stays on your device.'],
   },
   {
     q: 'Is it free?',
@@ -70,17 +75,15 @@ const QA = [
     a: ['Spendful is available on iPhone (iOS) and Android. You can find it on the App Store and Google Play.'],
   },
   {
-    q: 'What is a “spending intention”?',
-    a: ['It’s a gentle reference point for your month — not a strict limit.', 'It helps you understand your pace, without pressure.'],
-  },
-  {
     q: 'Something isn’t working. How do I get help?',
     a: ['Email us at <a href="mailto:buihdk@gmail.com">buihdk@gmail.com</a>. We typically respond within 1\u20132 business days.'],
   },
 ]
+
+const schema = [makeFAQSchema(QA)]
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} schema={schema}>
   <div class="space-y-7">
     {QA.map(({ q, a }) => (
       <details name="faq">

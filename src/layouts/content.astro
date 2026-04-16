@@ -1,13 +1,21 @@
 ---
 import Layout from '@/layouts/main.astro'
+import { makeWebPageSchema } from '@/lib/seo'
 
-const { frontmatter, title, description } = Astro.props
+const { frontmatter, title, description, schema } = Astro.props
 
 const pageTitle = frontmatter ? frontmatter.title : title
 const pageDescription = frontmatter ? frontmatter.description : description
+const path = Astro.url.pathname === '/' ? '/' : `${Astro.url.pathname.replace(/\/$/, '')}/`
+const pageSchema = makeWebPageSchema({
+  title: pageTitle,
+  description: pageDescription,
+  path,
+})
+const schemaItems = schema ? (Array.isArray(schema) ? [pageSchema, ...schema] : [pageSchema, schema]) : [pageSchema]
 ---
 
-<Layout title={pageTitle} description={pageDescription} minimal>
+<Layout title={pageTitle} description={pageDescription} schema={schemaItems} minimal>
   <section class="min-h-screen pt-32 pb-24 sm:pt-40">
     <div class="container typo text-on-surface-variant typo-headings:text-primary typo-headings:font-bold typo-strong:text-on-surface-variant typo-a:text-primary typo-blockquote:text-primary">
       <h1 class="mb-16 text-center">{pageTitle}</h1>

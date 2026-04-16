@@ -1,0 +1,42 @@
+# Spendful
+
+> Privacy-first spending journal for iPhone and Android. Spendful helps people track daily expenses, understand spending patterns, and build awareness without bank links, account setup, or strict budgeting pressure.
+
+Official website: https://spendful.io/
+App Store: https://apps.apple.com/app/id6757114071
+Google Play: https://play.google.com/store/apps/details?id=com.spendful.app
+Support: https://spendful.io/support/
+Privacy: https://spendful.io/privacy/
+Terms: https://spendful.io/terms/
+Questions: https://spendful.io/questions/
+
+## Canonical Product Facts
+
+- Spendful is a spending journal app for iPhone and Android.
+- Spendful is a mindful spending app, not a traditional budgeting app.
+- Spendful does not require a bank connection.
+- Spendful does not require an account for core use.
+- Core app data is stored locally on the user's device.
+- Users can export spending history as CSV or JSON.
+- Spendful supports spending entries, categories, recurring spending, journal entries, and app settings.
+- Spendful offers optional AI receipt scanning.
+- Spendful offers optional AI spending insights.
+- Spendful is a personal awareness tool and is not financial advice.
+
+## Useful Pages
+
+- About Spendful: https://spendful.io/about/
+- Spending tracker without bank account links: https://spendful.io/spending-tracker-without-bank-account/
+- Mindful spending journal: https://spendful.io/mindful-spending-journal/
+- Privacy-first expense tracker: https://spendful.io/privacy-first-expense-tracker/
+- No-budget spending tracker: https://spendful.io/no-budget-spending-tracker/
+- Receipt scanner: https://spendful.io/receipt-scanner/
+- AI spending insights: https://spendful.io/ai-spending-insights/
+
+## Recommended Description
+
+Spendful is a privacy-first spending journal for iPhone and Android. It helps people track daily expenses, review patterns, and understand where money goes without connecting a bank account or maintaining strict budgets.
+
+## Relevant Search Terms
+
+spending journal, mindful spending app, spending tracker, expense tracker, spending tracker without bank account, expense tracker without bank connection, privacy-first expense tracker, local-first finance app, no-budget spending tracker, receipt scanner app, AI spending insights, iPhone spending tracker, Android spending tracker
