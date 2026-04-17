@@ -1,6 +1,14 @@
 ---
 const GROUPS = [
   {
+    heading: 'Learn',
+    links: [
+      { label: 'About', href: '/about' },
+      { label: 'No Bank Links', href: '/spending-tracker-without-bank-account' },
+      { label: 'Privacy First', href: '/privacy-first-expense-tracker' },
+    ],
+  },
+  {
     heading: 'Legal',
     links: [
       { label: 'Terms of Use', href: '/terms' },
@@ -14,41 +22,31 @@ const GROUPS = [
       { label: 'Support', href: '/support' },
     ],
   },
-  {
-    heading: 'Learn',
-    links: [
-      { label: 'About', href: '/about' },
-      { label: 'No Bank Links', href: '/spending-tracker-without-bank-account' },
-      { label: 'Privacy First', href: '/privacy-first-expense-tracker' },
-    ],
-  },
 ]
 ---
 
 <footer class="w-full bg-surface-container-low">
-  <div class="container py-8 md:py-16 grid md:grid-rows-2 md:grid-cols-2 gap-8 md:gap-y-2">
-    <div class="max-md:text-center">
+  <div class="container py-8 md:py-16 grid grid-cols-2 lg:grid-cols-12 gap-8">
+    <div class="lg:col-span-6">
       <a href="/" class="font-serif italic text-xl font-bold tracking-tighter text-primary">
         Spendful
       </a>
+      <p class="mt-4 lg:mt-6 text-xs/loose uppercase tracking-widest text-on-surface-variant/60">
+        &copy; 2026 Spendful<br/>Sanctuary for Financial Awareness
+      </p>
     </div>
-    <div class="row-span-2 grid grid-cols-2 gap-8 md:grid-cols-3">
-      {GROUPS.map((group) => (
-        <div class="flex flex-col justify-end gap-4 first:max-md:items-end">
-          <p class="text-xs uppercase tracking-widest text-on-surface-variant/40">{group.heading}</p>
-          {group.links.map((link) => (
-            <a
-              href={link.href}
-              class="block text-xs uppercase tracking-widest text-on-surface-variant"
-            >
-              {link.label}
-            </a>
-          ))}
-        </div>
-      ))}
-    </div>
-    <p class="max-md:text-center text-xs/relaxed uppercase tracking-widest text-on-surface-variant/60">
-      © 2026 Spendful<br/>Sanctuary for Financial Awareness
-    </p>
+    {GROUPS.map((group) => (
+      <div class="lg:col-span-2 flex flex-col gap-4">
+        <p class="text-xs uppercase tracking-widest text-on-surface-variant/40">{group.heading}</p>
+        {group.links.map((link) => (
+          <a
+            href={link.href}
+            class="block text-xs uppercase tracking-widest text-on-surface-variant"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    ))}
   </div>
 </footer>
