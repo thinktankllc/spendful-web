@@ -5,10 +5,10 @@
 Official website: https://spendful.io/
 App Store: https://apps.apple.com/app/id6757114071
 Google Play: https://play.google.com/store/apps/details?id=com.spendful.app
-Support: https://spendful.io/support/
-Privacy: https://spendful.io/privacy/
-Terms: https://spendful.io/terms/
-Questions: https://spendful.io/questions/
+Support: https://spendful.io/support
+Privacy: https://spendful.io/privacy
+Terms: https://spendful.io/terms
+Questions: https://spendful.io/questions
 
 ## Canonical Product Facts
 

@@ -2,8 +2,10 @@
 import { defineConfig } from 'astro/config'
 import tailwindcss from '@tailwindcss/vite'
 
+import { SITE } from '@/lib/seo'
+
 export default defineConfig({
-  site: 'https://spendful.io',
+  site: SITE.url,
   vite: {
     plugins: [tailwindcss()],
   },

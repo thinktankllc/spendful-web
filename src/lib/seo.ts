@@ -306,11 +306,11 @@ export const SEO_LANDING_PAGES = [
 
 export const SITE_PAGES = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
-  ...SEO_LANDING_PAGES.map((page) => ({ path: `/${page.slug}/`, priority: page.slug === 'about' ? '0.8' : '0.9', changefreq: 'monthly' })),
-  { path: '/questions/', priority: '0.8', changefreq: 'monthly' },
-  { path: '/support/', priority: '0.5', changefreq: 'yearly' },
-  { path: '/privacy/', priority: '0.4', changefreq: 'yearly' },
-  { path: '/terms/', priority: '0.4', changefreq: 'yearly' },
+  ...SEO_LANDING_PAGES.map((page) => ({ path: `/${page.slug}`, priority: page.slug === 'about' ? '0.8' : '0.9', changefreq: 'monthly' })),
+  { path: '/questions', priority: '0.8', changefreq: 'monthly' },
+  { path: '/support', priority: '0.5', changefreq: 'yearly' },
+  { path: '/privacy', priority: '0.4', changefreq: 'yearly' },
+  { path: '/terms', priority: '0.4', changefreq: 'yearly' },
 ]
 
 export function makeOrganizationSchema() {
