@@ -173,7 +173,10 @@ const TESTIMONIALS = [
     // ─── Dot clicks ────────────────────────────────────────────────────────────
 
     dotBtns.forEach(function (btn, i) {
-      btn.addEventListener('click', function () { show(i); reset() })
+      btn.addEventListener('click', function () {
+        ;(window as any).posthog?.capture('testimonial_navigated', { method: 'dot', index: i })
+        show(i); reset()
+      })
     })
 
     // ─── Hover: pause while the user is reading ────────────────────────────────
@@ -185,8 +188,8 @@ const TESTIMONIALS = [
 
     el.addEventListener('keydown', function (e: KeyboardEvent) {
       const key = e.key
-      if (key === 'ArrowLeft')  { prev(); reset() }
-      if (key === 'ArrowRight') { next(); reset() }
+      if (key === 'ArrowLeft')  { ;(window as any).posthog?.capture('testimonial_navigated', { method: 'keyboard', direction: 'prev' }); prev(); reset() }
+      if (key === 'ArrowRight') { ;(window as any).posthog?.capture('testimonial_navigated', { method: 'keyboard', direction: 'next' }); next(); reset() }
     })
 
     // ─── Touch swipe (mobile) ─────────────────────────────────────────────────
@@ -199,6 +202,8 @@ const TESTIMONIALS = [
     el.addEventListener('touchend', function (e: TouchEvent) {
       const dx = e.changedTouches[0].clientX - touchStartX
       if (Math.abs(dx) > 50) {
+        const direction = dx < 0 ? 'next' : 'prev'
+        ;(window as any).posthog?.capture('testimonial_navigated', { method: 'swipe', direction })
         dx < 0 ? next() : prev()
         reset()
       }
