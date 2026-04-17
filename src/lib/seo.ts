@@ -35,7 +35,17 @@ export const KEYWORDS = [
   'Android spending tracker',
 ]
 
-export const SEO_LANDING_PAGES = [
+export const SEO_LANDING_PAGES: {
+  slug: string;
+  title: string;
+  description: string;
+  eyebrow: string;
+  hero: string;
+  intro: string;
+  keywords: string[];
+  sections: { heading: string; body: string }[];
+  faq: { q: string; a: string }[];
+}[] = [
   {
     slug: 'about',
     title: 'About Spendful',
