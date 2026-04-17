@@ -110,8 +110,8 @@ Important files:
 - `public/llms.txt` gives AI agents a concise product summary and canonical Spendful facts.
 - `src/pages/sitemap.xml.ts` generates the XML sitemap.
 - `public/9d7f0a2d9c984f0aa0a7f74a5f4c7b2d.txt` hosts the IndexNow key.
-- `src/lib/seo.ts` centralizes URLs, keywords, landing page data, sitemap entries, and JSON-LD helpers.
-- `src/pages/[slug].astro` generates focused search landing pages from `src/lib/seo.ts`.
+- `src/lib/seo` centralizes URLs, keywords, landing page data, sitemap entries, and JSON-LD helpers.
+- `src/pages/[slug].astro` generates focused search landing pages from `src/lib/seo`.
 - `src/layouts/main.astro` emits canonical URLs, Open Graph tags, Twitter/X card tags, app-link metadata, robots directives, and JSON-LD.
 
 Current SEO landing pages:
@@ -159,10 +159,10 @@ If the analytics behavior changes, update the privacy page in the same commit.
 - `/no-budget-spending-tracker/` SEO landing page
 - `/receipt-scanner/` SEO landing page
 - `/ai-spending-insights/` SEO landing page
-- `/privacy/` privacy policy
-- `/terms/` terms of use
-- `/support/` support page
-- `/questions/` FAQ page
+- `/privacy` privacy policy
+- `/terms` terms of use
+- `/support` support page
+- `/questions` FAQ page
 - `/sitemap.xml` sitemap endpoint
 - `/llms.txt` AI-friendly summary
 - `/robots.txt` crawler rules
