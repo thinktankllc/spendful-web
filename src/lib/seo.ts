@@ -80,7 +80,7 @@ export const SEO_LANDING_PAGES: {
       },
       {
         q: 'Who makes Spendful?',
-        a: 'Spendful is developed by Khoa Bui. The official website is spendful.io.',
+        a: 'Spendful is developed by Think Tank LLC.',
       },
     ],
   },

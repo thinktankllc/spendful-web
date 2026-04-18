@@ -10,7 +10,7 @@ Please read these Terms of Use carefully before using Spendful. By downloading, 
 
 ## 1. The App
 
-Spendful (“the App”) is a personal spend-tracking application developed and operated by Khoa Bui (“we”, “us”, or “our”). The App is available on the Apple App Store and Google Play Store.
+Spendful (“the App”) is a personal spend-tracking application developed and operated by Think Tank LLC (“we”, “us”, or “our”). The App is available on the Apple App Store and Google Play Store.
 
 ## 2. License Grant
 
