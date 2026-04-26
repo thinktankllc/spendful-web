@@ -1,13 +1,13 @@
 {
   "version": {
-    "android": "1.1",
-    "ios": "1.4.3"
+    "android": "1.2.1",
+    "ios": "1.5.2"
   },
   "force": false,
-  "title": "",
-  "message": "",
+  "title": "Spendful Companion is here",
+  "message": "Update Spendful to meet your new Companion — a calm way to reflect on your spending patterns.",
   "button": {
-    "no": "",
-    "yes": ""
+    "no": "Not now",
+    "yes": "Update"
   }
 }
