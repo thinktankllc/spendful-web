@@ -4,8 +4,8 @@
     "ios": "1.5.3"
   },
   "force": false,
-  "title": "Spendful Companion is here",
-  "message": "Update Spendful to meet your new Companion — a calm way to reflect on your spending patterns.",
+  "title": "",
+  "message": "",
   "button": {
     "no": "Not now",
     "yes": "Update"
