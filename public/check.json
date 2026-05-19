@@ -1,9 +1,9 @@
 {
   "version": {
     "android": "1.3.3",
-    "ios": "1.5.4"
+    "ios": "1.5.5"
   },
-  "force": false,
+  "force": true,
   "title": "",
   "message": "",
   "button": {
