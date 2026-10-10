@@ -94,4 +94,4 @@ Any disputes arising under these Terms shall be subject to the exclusive jurisdi
 
 If you have any questions about these Terms, please contact:
 
-[buihdk@gmail.com](mailto:buihdk@gmail.com)
+[spendful.marketing@gmail.com](mailto:spendful.marketing@gmail.com)

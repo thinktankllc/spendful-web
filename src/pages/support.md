@@ -6,7 +6,7 @@ description: Get help with Spendful. Reach our support team. We typically respon
 
 Thank you for using Spendful. If you have questions, need help, or want to report an issue, we’re here to help.
 
-You can contact us anytime at: 📧 [buihdk@gmail.com](mailto:buihdk@gmail.com)
+You can contact us anytime at: 📧 [spendful.marketing@gmail.com](mailto:spendful.marketing@gmail.com)
 
 We typically respond within 1–2 business days.
 

@@ -106,4 +106,4 @@ If we make material changes to this policy, we will update the â€œLast updatedâ€
 
 If you have questions about this privacy policy, please contact:
 
-[buihdk@gmail.com](mailto:buihdk@gmail.com)
+[spendful.marketing@gmail.com](mailto:spendful.marketing@gmail.com)

@@ -3,7 +3,7 @@ export const SITE = {
   url: 'https://spendful.io',
   description:
     'Spendful is a privacy-first spending journal for iPhone and Android. Track daily expenses without bank links, account setup, or budgeting pressure.',
-  email: 'buihdk@gmail.com',
+  email: 'spendful.marketing@gmail.com',
   appStoreUrl: 'https://apps.apple.com/app/id6757114071',
   playStoreUrl: 'https://play.google.com/store/apps/details?id=com.spendful.app',
   ogImage: '/og.png',
